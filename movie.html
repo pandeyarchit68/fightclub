@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Watch the movie Fight Club</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/daisyui@latest"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+
+  </head>
+
+  <body class="min-h-screen text-white bg-[radial-gradient(ellipse_at_bottom_right,_#300,_#000_60%)]">
+
+    <!-- NAVBAR -->
+    <header
+      class="fixed top-0 z-50 w-full flex items-center justify-between
+             bg-black/80 backdrop-blur px-7 py-4 border-b border-white/10"
+    >
+      <div class="flex items-center gap-12">
+        <h1
+          class="text-2xl text-pink-500 font-extrabold tracking-tight
+                 hover:scale-105 transition cursor-pointer"
+        >
+          FIGHT CLUB
+        </h1>
+
+        <nav class="flex items-center gap-6">
+          <a href="index.html" class="hover:text-blue-400">
+            Home
+          </a>
+          
+          <a href="movie.html" class="hover:text-blue-400">
+            Movie </a>
+
+          <div class="dropdown">
+            <div tabindex="0" role="button" class="bg-black/10 text-white px-4 py-2 rounded-md hover:text-blue-400 transition">Values</div>
+              <ul tabindex="-1" class="dropdown-content menu bg-black/80 rounded-box z-1 w-52 p-2 shadow-sm mt-2">
+                <li><a href="#" class="hover:text-blue-400 hover:bg-gray-900">Theories</a></li>
+                <!--hr class="border-white/40"-->
+                <li><a href="rules.html" class="hover:text-blue-400 hover:bg-gray-900">Rules</a></li>
+                <!--hr class="border-white/40" /-->
+                <li><a href="explorechars.html" class="hover:text-blue-400 hover:bg-gray-900">Character Guide</a></li>
+              </ul>
+          </div>
+        </nav>
+      </div>
+
+      <form class="flex items-center gap-2 mx-10">
+        <input
+          type="search"
+          placeholder="Search"
+          class="bg-transparent border border-white/40 text-white
+                 px-3 py-1.5 rounded-md placeholder-white/60
+                 focus:outline-none focus:border-white
+                 hover:border-pink-400 transition"
+        />
+
+        <button
+          type="submit"
+          class="border border-white/40 text-white hover:border-pink-400
+                 px-4 py-1.5 rounded-md
+                 hover:text-pink-400 hover:font-bold transition"
+        >
+          Search
+        </button>
+      </form>
+    </header>
+
+
+    <main class="min-h-screen">
+  <section class="w-full min-h-screen flex flex-col items-center justify-center gap-10 pt-32">
+
+    <!-- IMAGE -->
+    <img
+      src="movieone.jpg"
+      class="w-[900px] h-[520px] object-cover rounded-xl shadow-xl border border-black "
+    />
+
+    <!-- BUTTONS -->
+    <nav class="flex gap-8">
+      <a
+        href="https://archive.org/details/fight.club.10th.anniversary.edition.1999.1080p.brrip.x264.yify_201908"
+        class="btn btn-lg btn-outline border border-pink-400 hover:bg-pink-500/20 hover:border-pink-900 cursor-pointer" target="_blank"
+      >
+        I’ll watch the movie
+      </a>
+
+      <a
+      href="ballcancer.html"
+        class="btn btn-lg btn-outline cursor-pointer border border-blue-400 hover:bg-blue-500/30 hover:border-blue-900 hover:text-white"
+      >
+        I won’t watch the movie
+      </a>
+    </nav>
+
+  </section>
+</main>
+
+
+    <footer class="w-full bg-black/90 border-t border-white/5 px-8 py-6 mt-20">
+  <section class="max-w-7xl mx-auto flex items-center justify-between">
+    
+    <!-- Left text -->
+    <p class="text-sm text-white/60 tracking-wide">
+      © 2026 pandeyarchit68 • All rights reserved.
+    </p>
+
+    <!-- Social icons -->
+    <nav class="flex items-center gap-6">
+      
+      <!-- Instagram -->
+      <a href="https://www.instagram.com/pandeyarchit68/" target="_blank" aria-label="Instagram">
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    class="w-6 h-6 fill-none stroke-white/70 stroke-[1.5] hover:stroke-pink-500 transition"
+  >
+    <rect x="3" y="3" width="18" height="18" rx="5" ry="5" />
+    <circle cx="12" cy="12" r="4" />
+    <circle cx="17" cy="7" r="1" fill="currentColor" stroke="none" />
+  </svg>
+</a>
+
+      <!-- LinkedIn -->
+      <a href="https://www.linkedin.com/in/pandeyarchit68/" target="_blank" class="hover:scale-110 transition">
+        <svg class="w-6 h-6 fill-white/70 hover:fill-blue-500" viewBox="0 0 24 24">
+          <path d="M4.98 3.5a2.48 2.48 0 1 0 0 4.96 2.48 2.48 0 0 0 0-4.96zM3 8.98h4v12H3zM9 8.98h3.8v1.6h.05a4.2 4.2 0 0 1 3.78-2.08c4.04 0 4.78 2.66 4.78 6.12v6.36h-4v-5.64c0-1.34-.02-3.06-1.86-3.06-1.86 0-2.14 1.45-2.14 2.96v5.74H9z"/>
+        </svg>
+      </a>
+
+      <!-- GitHub -->
+      <a href="https://github.com/pandeyarchit68" target="_blank" class="hover:scale-110 transition">
+        <svg class="w-6 h-6 fill-white/70 hover:fill-white" viewBox="0 0 24 24">
+          <path d="M12 .5A12 12 0 0 0 0 12.8c0 5.4 3.4 10 8.2 11.6.6.1.8-.3.8-.6v-2.2c-3.3.7-4-1.6-4-1.6-.5-1.3-1.3-1.6-1.3-1.6-1-.7.1-.7.1-.7 1.2.1 1.8 1.3 1.8 1.3 1 .1 1.6.7 1.8 1.1.3.6 1.2 1.1 2.1.8.1-.8.4-1.4.7-1.7-2.7-.3-5.5-1.4-5.5-6a4.7 4.7 0 0 1 1.2-3.3c-.1-.3-.5-1.6.1-3.3 0 0 1-.3 3.4 1.3a11.8 11.8 0 0 1 6.2 0c2.4-1.6 3.4-1.3 3.4-1.3.6 1.7.2 3 .1 3.3a4.7 4.7 0 0 1 1.2 3.3c0 4.6-2.8 5.7-5.5 6 .4.4.8 1.1.8 2.2v3.2c0 .3.2.7.8.6A12.2 12.2 0 0 0 24 12.8 12 12 0 0 0 12 .5z"/>
+        </svg>
+      </a>
+
+    </nav>
+  </section>
+</footer>
+
+  </body>
+</html>

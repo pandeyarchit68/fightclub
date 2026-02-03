@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Incoming Call</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+  </head>
+
+  <body class="bg-black overflow-hidden">
+  <main class="relative h-screen w-screen flex items-center justify-center">
+
+    <!-- BACKGROUND IMAGE -->
+    <div class="relative h-screen">
+  <img
+    src="jackcancer.jpg"
+    alt="Incoming Call"
+    class="h-full w-full object-contain"
+  />
+
+      <!-- CALLER NAME -->
+       <!-- CALLER INFO -->
+<div class="absolute top-16 w-full text-center cursor-none">
+  <h1 class="text-white text-5xl font-bold animate__animated animate__fadeInDown">
+    Ball Cancer
+  </h1>
+  <h2 class="text-white text-2xl mt-2 animate__animated animate__fadeInDown animate__delay-2s">
+    Incoming Call...
+  </h2>
+</div>
+
+    <!-- REJECT CALL (LEFT) -->
+    <div class="absolute bottom-0 left-1/2 flex flex-col items-center gap-1 cursor-pointer">
+  <img
+    src="reject.png"
+    class="w-42 h-72 animate__animated animate__pulse animate__slow animate__infinite"
+  />
+</div>
+
+    <!-- ACCEPT CALL (RIGHT) -->
+    <div class="absolute bottom-0 right-1/2 flex flex-col items-center gap-1 cursor-pointer">
+  <img
+    src="accept.png"
+    class="w-42 h-72 animate__animated animate__pulse animate__slow animate__infinite"
+  />
+</div>
+    </div>
+
+  </main>
+</body>
+
+</html>
