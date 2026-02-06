@@ -1,0 +1,7 @@
+<!--h2 class="text-3xl text-pink-500 font-bold tracking-tight text-center mb-6 mt-2">
+      Tyler Durden
+    </!--h2>
+
+    <p-- class="max-w-3xl mx-auto text-lg text-white/80 leading-relaxed text-center">
+      Tyler Durden is the charismatic and enigmatic alter ego of the unnamed narrator in Chuck Palahniuk's novel "Fight Club" and its film adaptation. He embodies rebellion, anti-consumerism, and a rejection of societal norms. Tyler is a complex character who challenges traditional notions of identity and masculinity, ultimately leading to a destructive path that forces the narrator to confront his own psyche and the consequences of his actions.
+    </p-->

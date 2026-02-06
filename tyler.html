@@ -6,15 +6,62 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- daisy UI cdn-->
     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
-<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- Animate.css -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+
+  <!-- WOW.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+
   </head>
 
-  <body class="bg-black text-white">
+  <script>
+    new WOW({
+    offset: 120,
+    mobile: false
+    }).init();
+  </script>
+
+  <script>
+  function closePopup() {
+    const popup = document.getElementById("fakePopup");
+
+    // optional exit animation
+    popup.classList.remove("animate__fadeInUp");
+    popup.classList.add("animate__fadeOutDown");
+
+    setTimeout(() => {
+      popup.remove();
+    }, 600);
+  } 
+  </script>
+
+  <script>
+  function closePopupn() {
+    const popupn = document.getElementById("fakePopup2");
+
+    //popup.classList.remove("animate__fadeInUp");
+    popupn.classList.add("animate__fadeOutDown");
+
+    setTimeout(() => {
+      popupn.remove();
+    }, 600);
+  }
+</script>
+
+
+
+  <body class="bg-black text-white ">
     <!-- NAVBAR -->
     <header
-      class="fixed top-0 z-50 w-full flex items-center justify-between
-             bg-black/80 backdrop-blur px-7 py-4 border-b border-white/10"
-    >
+  class="fixed top-0 left-0 z-50 w-full flex items-center justify-between
+         bg-black/95 backdrop-blur px-7 py-4 border-b border-white/10"
+>
+
       <div class="flex items-center gap-12">
         <h1
           class="text-2xl text-pink-500 font-extrabold tracking-tight
@@ -32,7 +79,7 @@
             Movie </a>
 
           <div class="dropdown">
-            <div tabindex="0" role="button" class="bg-black/80 text-white px-4 py-2 rounded-md hover:text-blue-400 transition">Values</div>
+            <div tabindex="0" role="button" class="bg-black/10 text-white px-4 py-2 rounded-md hover:text-blue-400 transition">Values</div>
               <ul tabindex="-1" class="dropdown-content menu bg-black/80 rounded-box z-1 w-52 p-2 shadow-sm mt-2">
                 <li><a href="#" class="hover:text-blue-400 hover:bg-gray-900">Theories</a></li>
                 <!--hr class="border-white/40"-->
@@ -64,10 +111,139 @@
         </button>
       </form>
     </header>
+  
+    <!-- MAIN CONTENT -->
+     <main class="bg-black mt-16 text-white">
+
+  <!-- HERO -->
+  <section class="relative h-[calc(100vh-80px)] flex items-center justify-center cursor-none">
+
+    <!-- IMAGE -->
+    <img
+      src="tylerhero_smaller.png"
+      class="absolute inset-0 m-auto max-h-full w-auto object-contain"
+    />
+
+    <!-- TEXT OVERLAY -->
+    <span class="text-4xl absolute bottom-10 px-4 text-center text-white/30 tracking-wide font-semibold">
+      I'm Jack's
+      <span class="text-rotate">
+        <span>
+          <span>Inflamed Sense of Rejection</span>
+          <span>Smirking Revenge</span>
+          <span>Complete Lack of Surprise</span>
+          <span>Raging Bile Duct</span>
+          <span>Broken Heart</span>
+          <span>Cold Sweat</span>
+        </span>
+      </span>
+    </span>
+
+  </section>
+
+
+    <section class="hero bg-base-200 min-h-screen px-32 bg-black">
+  <article class="hero-content flex-col lg:flex-row-reverse">
+    <figure>
+      <img
+        src="tylercard22.png"
+        class="max-w-lg rounded-lg shadow-2xl h-72"
+        alt="Movie still"
+      />
+    </figure>
+
+    <article class="px-32 cursor-pointer">
+      <p class="py-2 wow animate__animated animate__fadeIn" data-wow-delay="0.2s">
+        I see strength everywhere.
+I see intelligence everywhere.
+And I see it all being wasted.</p>
+
+<p class="py-2 wow animate__animated animate__fadeIn" data-wow-delay="0.4s">
+A generation burning itself out
+pumping gas, serving tables,
+wearing suits that feel like chains. </p>
+
+<p class="py-2 wow animate__animated animate__fadeIn" data-wow-delay="0.6s">
+We were sold a dream... 
+money, fame, perfect lives 
+and woke up trapped in jobs we hate,
+buying things we don’t need,
+to impress people we don’t care about.</p>
+
+<p class="py-2 wow animate__animated animate__fadeIn" data-wow-delay="0.8s">
+No great war.
+No great collapse.
+Just quiet decay. </p>
+
+<p class="py-2 wow animate__animated animate__fadeIn" data-wow-delay="1.0s">
+Our battle isn’t out there.
+It’s inside us.
+And we’re finally angry enough to notice.</p>
+
+    </article>
+  </article>
+
+  </section>
+
+
+  <!-- trolls -->
+  <section class="fixed bottom-6 left-6 flex  space-y-26 flex-col">
+  <aside id="fakePopup2" class="fixed bottom-6 left-6 bg-gray-900 border border-white/5 rounded-xl max-w-3xl shadow-lg wow animate__animated animate__fadeInUp hover:scale-[1.02]" data-wow-delay="22s" >
+    
+  <div class="flex items-start gap-3 p-4">
+    <a href="ballcancer.html"></a>
+    <img src="cropped_circle_image.png" class="w-10 h-10 rounded-full opacity-80" />
+    </a>
+    <a href="ballcancer.html">
+    <div class="text-sm text-white/80">
+      <p class="font-bold text-white/40">Bharat me no. 1</p>
+      <p>hathiyaar kro lamba aur damdar<br/>7 inch 4 din me</p>
+    </div></a>
+    <!-- X Close button -->
+    <button
+      onclick="closePopupn()"
+      class="ml-auto text-white/40 hover:text-white text-sm hover:font-semibold"
+    >
+      ✕
+    </button>
+  </div>
+</aside>
+
+<aside
+  id="fakePopup"
+  class="fixed bottom-6 left-6 bg-gray-900 border border-white/5 rounded-xl max-w-3xl shadow-2xl wow animate__animated animate__fadeInUp hover:scale-[1.02]" data-wow-delay="32s"
+>
+  <a href="ballcancer.html"></a>
+  <div class="flex items-start gap-3 p-4">
+    <img src="cropped_circle_image (1).png" class="w-10 h-10 rounded-full opacity-80" /></a>
+
+    <a href="ballcancer.html">
+    <div class="text-sm text-white/80">
+      <p class="font-bold text-white/40">They are waiting for you!!</p>
+      <p>Meet single moms in your 5 km radius...<br> !! Book your private meeting now...</p>
+    </div></a>
+
+    <!-- X Close button -->
+    <button
+      onclick="closePopup()"
+      class="ml-auto text-white/40 hover:text-white text-sm hover:font-semibold"
+    >
+      ✕
+    </button>
+  </div>
+</aside>
+</section>
 
 
 
+</main>
 
+    
+      
+      
+      
+      
+    <!-- FOOTER -->
     <footer class="w-full bg-black/90 border-t border-white/5 px-8 py-6">
   <section class="max-w-7xl mx-auto flex items-center justify-between">
     
