@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Result</title>
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-black text-white flex items-center justify-center min-h-screen">
+
+<section class="text-center max-w-3xl px-6">
+
+<h1 class="text-6xl font-black mb-10 text-pink-500">
+YOUR RESULT
+</h1>
+
+<h2 id="resultTitle" class="text-4xl font-bold mb-6">
+Calculating...
+</h2>
+
+<p id="resultText" class="text-xl text-white/70 leading-relaxed">
+Please wait...
+</p>
+
+<a href="index.html"
+class="inline-block mt-12 px-10 py-4 border border-white hover:bg-white hover:text-black transition">
+Go Back Home
+</a>
+
+</section>
+
+<script>
+// Get answers from localStorage
+let tyler = localStorage.getItem("tylerScore");
+let jack = localStorage.getItem("jackScore");
+
+tyler = Number(tyler);
+jack = Number(jack);
+
+let title = document.getElementById("resultTitle");
+let text = document.getElementById("resultText");
+
+if (tyler > jack) {
+title.innerText = "You are TYLER DURDEN";
+text.innerText = "You believe freedom is more important than comfort. You question society, reject meaningless routines, and want to live life on your own terms. A bit nihilistic, but alive.";
+}
+else if (jack > tyler) {
+title.innerText = "You are THE NARRATOR";
+text.innerText = "You try to live a stable and comfortable life. You follow structure, responsibilities, and the safe path. But somewhere inside, you feel something is missing.";
+}
+else {
+title.innerText = "You are BALANCED";
+text.innerText = "You are somewhere between Tyler and the Narrator. You want freedom, but also stability. You understand chaos, but you also understand responsibility.";
+}
+</script>
+
+</body>
+</html>
