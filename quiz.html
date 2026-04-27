@@ -1,405 +1,282 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fight Club Personality Test</title>
-<script src="https://cdn.tailwindcss.com"></script>
-    <!-- daisy UI cdn-->
-    <link
-      href="https://cdn.jsdelivr.net/npm/daisyui@5"
-      rel="stylesheet"
-      type="text/css"
-    />
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-<script>
-var sub = false;
-</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fight Club Personality Test</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <script>var sub = false;</script>
 </head>
 
 <!-- HIDDEN IFRAME -->
-<iframe
-  src=""
-  frameborder="0"
-  id="end"
-  name="end"
-  class="hidden"
-  onload="if(sub){ window.location.href='results.html'; }"
-></iframe>
+<iframe src="" frameborder="0" id="end" name="end" class="hidden"
+  onload="if(sub){ window.location.href='results.html'; }"></iframe>
 
 <script>
 function calculateScore() {
-let tyler = 0;
-let jack = 0;
-
-let answers = document.querySelectorAll("input[type=radio]:checked");
-
-answers.forEach((ans) => {
-if(ans.value.includes("free") ||
-   ans.value.includes("meaningless") ||
-   ans.value.includes("control people") ||
-   ans.value.includes("unpredictable") ||
-   ans.value.includes("teaches") ||
-   ans.value.includes("controlled") ||
-   ans.value.includes("Freedom") ||
-   ans.value.includes("Revolutionary")) {
-   tyler++;
-} else {
-   jack++;
-}
-});
-
-localStorage.setItem("tylerScore", tyler);
-localStorage.setItem("jackScore", jack);
+  let tyler = 0, jack = 0;
+  document.querySelectorAll("input[type=radio]:checked").forEach((ans) => {
+    if (ans.value.includes("free") || ans.value.includes("meaningless") ||
+        ans.value.includes("control people") || ans.value.includes("unpredictable") ||
+        ans.value.includes("teaches") || ans.value.includes("controlled") ||
+        ans.value.includes("Freedom") || ans.value.includes("Revolutionary")) {
+      tyler++;
+    } else { jack++; }
+  });
+  localStorage.setItem("tylerScore", tyler);
+  localStorage.setItem("jackScore", jack);
 }
 </script>
 
 <body class="bg-black text-white">
-    <header
-      class="fixed top-0 z-50 w-full flex items-center justify-between bg-black/80 backdrop-blur px-7 py-4 border-b border-white/10"
-    >
-      <div class="flex items-center gap-12">
-        <h1
-          class="text-2xl text-pink-500 font-extrabold tracking-tight hover:scale-105 transition cursor-pointer"
-        >
-          FIGHT CLUB
-        </h1>
 
-        <nav class="flex items-center gap-6">
-          <a href="index.html" class="hover:text-blue-400"> Home </a>
-
-          <a href="movie.html" class="hover:text-blue-400"> Movie </a>
-
-          <div class="dropdown">
-            <div
-              tabindex="0"
-              role="button"
-              class="bg-black/10 text-white px-4 py-2 rounded-md hover:text-blue-400 transition"
-            >
-              Values
-            </div>
-            <ul
-              tabindex="-1"
-              class="dropdown-content menu bg-black/80 rounded-box z-1 w-52 p-2 shadow-sm mt-2"
-            >
-              <li>
-                <a href="theories.html" class="hover:text-blue-400 hover:bg-gray-900"
-                  >Theories</a
-                >
-              </li>
-              <!--hr class="border-white/40"-->
-              <li>
-                <a
-                  href="rules.html"
-                  class="hover:text-blue-400 hover:bg-gray-900"
-                  >Rules</a
-                >
-              </li>
-              <!--hr class="border-white/40" /-->
-              <li>
-                <a
-                  href="characters.html"
-                  class="hover:text-blue-400 hover:bg-gray-900"
-                  >Characters</a
-                >
-              </li>
-            </ul>
-          </div>
-        </nav>
+  <!-- NAVBAR -->
+  <header class="fixed top-0 z-50 w-full bg-black/80 backdrop-blur border-b border-white/10">
+    <nav class="flex items-center justify-between px-5 py-4 max-w-7xl mx-auto">
+        <!-- Logo + Nav grouped left -->
+        <div class="flex items-center gap-8">
+      <a href="index.html" class="text-xl sm:text-2xl text-pink-500 font-extrabold tracking-tight hover:scale-105 transition shrink-0">
+        FIGHT CLUB
+      </a>
+      <ul class="hidden md:flex items-center gap-6 text-sm">
+        <li><a href="index.html" class="hover:text-blue-400 transition">Home</a></li>
+        <li><a href="movie.html" class="hover:text-blue-400 transition">Movie</a></li>
+        <li class="relative group">
+          <button class="hover:text-blue-400 transition px-2 py-1">Values ▾</button>
+          <ul class="absolute top-full left-0 mt-2 w-44 bg-black/90 border border-white/10 rounded-lg overflow-hidden opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 shadow-xl">
+            <li><a href="theories.html" class="block px-4 py-2.5 hover:text-blue-400 hover:bg-white/5 transition">Theories</a></li>
+            <li><a href="rules.html" class="block px-4 py-2.5 hover:text-blue-400 hover:bg-white/5 transition">Rules</a></li>
+            <li><a href="characters.html" class="block px-4 py-2.5 hover:text-blue-400 hover:bg-white/5 transition">Characters</a></li>
+          </ul>
+        </li>
+      </ul>
       </div>
-
-      <form class="flex items-center gap-2 mx-10">
-        <input
-          type="search"
-          placeholder="Search"
-          class="bg-transparent border border-white/40 text-white px-3 py-1.5 rounded-md placeholder-white/60 focus:outline-none focus:border-white hover:border-pink-400 transition"
-        />
-
-        <button
-          type="submit"
-          class="border border-white/40 text-white hover:border-pink-400 px-4 py-1.5 rounded-md hover:text-pink-400 hover:font-bold transition"
-        >
-          Search
-        </button>
+      <form class="hidden md:flex items-center gap-2">
+        <input type="search" placeholder="Search"
+          class="bg-transparent border border-white/40 text-white px-3 py-1.5 rounded-md text-sm placeholder-white/60 focus:outline-none focus:border-white hover:border-pink-400 transition w-36 lg:w-48" />
+        <button type="submit"
+          class="border border-white/40 text-white hover:border-pink-400 px-3 py-1.5 rounded-md text-sm hover:text-pink-400 hover:font-bold transition">Search</button>
       </form>
-    </header>
+      <button id="menuBtn" aria-label="Open menu" class="md:hidden flex flex-col gap-1.5 p-2">
+        <span class="block w-6 h-0.5 bg-white"></span>
+        <span class="block w-6 h-0.5 bg-white"></span>
+        <span class="block w-6 h-0.5 bg-white"></span>
+      </button>
+    </nav>
+    <aside id="mobileMenu" class="hidden md:hidden bg-black/95 border-t border-white/10 px-5 pb-6 pt-4 space-y-4">
+      <form class="flex gap-2 mb-4">
+        <input type="search" placeholder="Search"
+          class="flex-1 bg-transparent border border-white/40 text-white px-3 py-2 rounded-md text-sm placeholder-white/60 focus:outline-none focus:border-white" />
+        <button type="submit"
+          class="border border-white/40 text-white px-3 py-2 rounded-md text-sm hover:text-pink-400 hover:border-pink-400 transition">Search</button>
+      </form>
+      <a href="index.html" class="block py-2 hover:text-blue-400 transition border-b border-white/10">Home</a>
+      <a href="movie.html" class="block py-2 hover:text-blue-400 transition border-b border-white/10">Movie</a>
+      <p class="text-white/40 text-xs uppercase tracking-widest pt-1">Values</p>
+      <a href="theories.html" class="block py-2 pl-3 hover:text-blue-400 transition border-b border-white/10">Theories</a>
+      <a href="rules.html" class="block py-2 pl-3 hover:text-blue-400 transition border-b border-white/10">Rules</a>
+      <a href="characters.html" class="block py-2 pl-3 hover:text-blue-400 transition">Characters</a>
+    </aside>
+  </header>
 
-<!-- HERO -->
-<section class="text-center py-20 border-b border-white/10 py-32">
-<h1 class="text-6xl font-black text-pink-500">PERSONALITY TEST</h1>
-<p class="text-white/60 mt-6 text-xl">
-Jack or Tyler - Who Are You Really?
-</p>
-</section>
+  <script>
+    const btn = document.getElementById('menuBtn');
+    const menu = document.getElementById('mobileMenu');
+    btn.addEventListener('click', () => menu.classList.toggle('hidden'));
+  </script>
 
-<!-- FORM -->
-<section class="max-w-5xl mx-auto px-10 py-20">
+  <!-- HERO -->
+  <section class="text-center py-24 sm:py-32 border-b border-white/10 px-5">
+    <h1 class="text-4xl sm:text-6xl font-black text-pink-500">PERSONALITY TEST</h1>
+    <p class="text-white/60 mt-6 text-lg sm:text-xl">
+      Jack or Tyler — Who Are You Really?
+    </p>
+  </section>
 
-<form onsubmit="calculateScore(); sub=true;"
-action="https://docs.google.com/forms/d/e/1FAIpQLSdB8qGms71wTxTPc23DFOBBF_wWYMlmyaPcTPk9GTeIXwpRfw/formResponse"
-method="post"
-target="end"
-class="space-y-16"
->
+  <!-- FORM -->
+  <section class="max-w-3xl mx-auto px-5 sm:px-10 py-16 sm:py-20">
+    <form onsubmit="calculateScore(); sub=true;"
+      action="https://docs.google.com/forms/d/e/1FAIpQLSdB8qGms71wTxTPc23DFOBBF_wWYMlmyaPcTPk9GTeIXwpRfw/formResponse"
+      method="post" target="end" class="space-y-10 sm:space-y-16">
 
-<!-- NAME -->
-<fieldset class="border border-white/20 p-8">
-<legend class="text-pink-500 text-xl font-bold">Identity</legend>
+      <!-- NAME -->
+      <fieldset class="border border-white/20 p-6 sm:p-8 rounded-lg">
+        <legend class="text-pink-500 text-lg sm:text-xl font-bold px-2">Identity</legend>
+        <label class="block mt-4 text-white/70 text-sm">Your Name</label>
+        <input type="text" name="entry.2144390395"
+          class="w-full mt-2 bg-black border border-white/20 p-3 rounded focus:outline-none focus:border-pink-400 transition" required />
+      </fieldset>
 
-<label class="block mt-4 text-white/70">Your Name</label>
-<input
-type="text"
-name="entry.2144390395"
-class="w-full mt-2 bg-black border border-white/20 p-3"
-required
->
-</fieldset>
+      <!-- Q1 -->
+      <fieldset class="border border-white/20 p-6 sm:p-8 rounded-lg">
+        <legend class="text-pink-500 text-lg sm:text-xl font-bold px-2">What scares you more?</legend>
+        <label class="flex items-center gap-3 mt-4 cursor-pointer hover:text-white/90 transition">
+          <input type="radio" name="entry.1770485383" value="Losing stability and security" class="accent-pink-500" />
+          Losing stability and security
+        </label>
+        <label class="flex items-center gap-3 mt-3 cursor-pointer hover:text-white/90 transition">
+          <input type="radio" name="entry.1770485383" value="Living a meaningless life" class="accent-pink-500" />
+          Living a meaningless life
+        </label>
+      </fieldset>
 
-<!-- QUESTION TEMPLATE -->
-<!-- Q1 -->
-<fieldset class="border border-white/20 p-8">
-<legend class="text-pink-500 text-xl font-bold">
-What scares you more?
-</legend>
+      <!-- Q2 -->
+      <fieldset class="border border-white/20 p-6 sm:p-8 rounded-lg">
+        <legend class="text-pink-500 text-lg sm:text-xl font-bold px-2">You would rather:</legend>
+        <label class="flex items-center gap-3 mt-4 cursor-pointer hover:text-white/90 transition">
+          <input type="radio" name="entry.1318698173" value="Have a stable job and peaceful life" class="accent-pink-500" />
+          Have a stable job and peaceful life
+        </label>
+        <label class="flex items-center gap-3 mt-3 cursor-pointer hover:text-white/90 transition">
+          <input type="radio" name="entry.1318698173" value="Live freely even if life is chaotic" class="accent-pink-500" />
+          Live freely even if life is chaotic
+        </label>
+      </fieldset>
 
-<label class="block mt-4">
-<input type="radio" name="entry.1770485383" value="Losing stability and security">
- Losing stability and security
-</label>
+      <!-- Q3 -->
+      <fieldset class="border border-white/20 p-6 sm:p-8 rounded-lg">
+        <legend class="text-pink-500 text-lg sm:text-xl font-bold px-2">Your room is:</legend>
+        <label class="flex items-center gap-3 mt-4 cursor-pointer hover:text-white/90 transition">
+          <input type="radio" name="entry.429190105" value="Organized and comfortable" class="accent-pink-500" />
+          Organized and comfortable
+        </label>
+        <label class="flex items-center gap-3 mt-3 cursor-pointer hover:text-white/90 transition">
+          <input type="radio" name="entry.429190105" value="Minimal or messy but free" class="accent-pink-500" />
+          Minimal or messy but free
+        </label>
+      </fieldset>
 
-<label class="block mt-2">
-<input type="radio" name="entry.1770485383" value="Living a meaningless life">
- Living a meaningless life
-</label>
-</fieldset>
+      <!-- Q4 -->
+      <fieldset class="border border-white/20 p-6 sm:p-8 rounded-lg">
+        <legend class="text-pink-500 text-lg sm:text-xl font-bold px-2">Money is:</legend>
+        <label class="flex items-center gap-3 mt-4 cursor-pointer hover:text-white/90 transition">
+          <input type="radio" name="entry.977999315" value="Security" class="accent-pink-500" />
+          Security
+        </label>
+        <label class="flex items-center gap-3 mt-3 cursor-pointer hover:text-white/90 transition">
+          <input type="radio" name="entry.977999315" value="A tool" class="accent-pink-500" />
+          A tool, not life
+        </label>
+      </fieldset>
 
-<!-- Q2 -->
-<fieldset class="border border-white/20 p-8">
-<legend class="text-pink-500 text-xl font-bold">
-You would rather:
-</legend>
+      <!-- Q5 -->
+      <fieldset class="border border-white/20 p-6 sm:p-8 rounded-lg">
+        <legend class="text-pink-500 text-lg sm:text-xl font-bold px-2">Society rules are:</legend>
+        <label class="flex items-center gap-3 mt-4 cursor-pointer hover:text-white/90 transition">
+          <input type="radio" name="entry.1066647958" value="Necessary for order" class="accent-pink-500" />
+          Necessary for order
+        </label>
+        <label class="flex items-center gap-3 mt-3 cursor-pointer hover:text-white/90 transition">
+          <input type="radio" name="entry.1066647958" value="Made to control people" class="accent-pink-500" />
+          Made to control people
+        </label>
+      </fieldset>
 
-<label class="block mt-4">
-<input type="radio" name="entry.1318698173" value="Have a stable job and peaceful life">
- Have a stable job and peaceful life
-</label>
+      <!-- Q6 -->
+      <fieldset class="border border-white/20 p-6 sm:p-8 rounded-lg">
+        <legend class="text-pink-500 text-lg sm:text-xl font-bold px-2">You feel more alive when:</legend>
+        <label class="flex items-center gap-3 mt-4 cursor-pointer hover:text-white/90 transition">
+          <input type="radio" name="entry.680283407" value="Everything is under control" class="accent-pink-500" />
+          Everything is under control
+        </label>
+        <label class="flex items-center gap-3 mt-3 cursor-pointer hover:text-white/90 transition">
+          <input type="radio" name="entry.680283407" value="Things are unpredictable" class="accent-pink-500" />
+          Things are unpredictable
+        </label>
+      </fieldset>
 
-<label class="block mt-2">
-<input type="radio" name="entry.1318698173" value="Live freely even if life is chaotic">
- Live freely even if life is chaotic
-</label>
-</fieldset>
+      <!-- Q7 -->
+      <fieldset class="border border-white/20 p-6 sm:p-8 rounded-lg">
+        <legend class="text-pink-500 text-lg sm:text-xl font-bold px-2">Pain is:</legend>
+        <label class="flex items-center gap-3 mt-4 cursor-pointer hover:text-white/90 transition">
+          <input type="radio" name="entry.1758192376" value="Something to avoid" class="accent-pink-500" />
+          Something to avoid
+        </label>
+        <label class="flex items-center gap-3 mt-3 cursor-pointer hover:text-white/90 transition">
+          <input type="radio" name="entry.1758192376" value="Something that teaches you" class="accent-pink-500" />
+          Something that teaches you
+        </label>
+      </fieldset>
 
-<!-- Q3 -->
-<fieldset class="border border-white/20 p-8">
-<legend class="text-pink-500 text-xl font-bold">
-Your room is:
-</legend>
+      <!-- Q8 -->
+      <fieldset class="border border-white/20 p-6 sm:p-8 rounded-lg">
+        <legend class="text-pink-500 text-lg sm:text-xl font-bold px-2">Which is worse?</legend>
+        <label class="flex items-center gap-3 mt-4 cursor-pointer hover:text-white/90 transition">
+          <input type="radio" name="entry.2015307494" value="Being poor" class="accent-pink-500" />
+          Being poor
+        </label>
+        <label class="flex items-center gap-3 mt-3 cursor-pointer hover:text-white/90 transition">
+          <input type="radio" name="entry.2015307494" value="Being controlled" class="accent-pink-500" />
+          Being controlled
+        </label>
+      </fieldset>
 
-<label class="block mt-4">
-<input type="radio" name="entry.429190105" value="Organized and comfortable">
- Organized and comfortable
-</label>
+      <!-- Q9 -->
+      <fieldset class="border border-white/20 p-6 sm:p-8 rounded-lg">
+        <legend class="text-pink-500 text-lg sm:text-xl font-bold px-2">Happiness comes from:</legend>
+        <label class="flex items-center gap-3 mt-4 cursor-pointer hover:text-white/90 transition">
+          <input type="radio" name="entry.1241136856" value="Comfort and stability" class="accent-pink-500" />
+          Comfort and stability
+        </label>
+        <label class="flex items-center gap-3 mt-3 cursor-pointer hover:text-white/90 transition">
+          <input type="radio" name="entry.1241136856" value="Freedom and purpose" class="accent-pink-500" />
+          Freedom and purpose
+        </label>
+      </fieldset>
 
-<label class="block mt-2">
-<input type="radio" name="entry.429190105" value="Minimal or messy but free">
- Minimal or messy but free
-</label>
-</fieldset>
+      <!-- Q10 -->
+      <fieldset class="border border-white/20 p-6 sm:p-8 rounded-lg">
+        <legend class="text-pink-500 text-lg sm:text-xl font-bold px-2">You are more:</legend>
+        <label class="flex items-center gap-3 mt-4 cursor-pointer hover:text-white/90 transition">
+          <input type="radio" name="entry.1500555301" value="Realistic" class="accent-pink-500" />
+          Realistic
+        </label>
+        <label class="flex items-center gap-3 mt-3 cursor-pointer hover:text-white/90 transition">
+          <input type="radio" name="entry.1500555301" value="Revolutionary" class="accent-pink-500" />
+          Revolutionary
+        </label>
+      </fieldset>
 
-<!-- Q4 -->
-<fieldset class="border border-white/20 p-8">
-<legend class="text-pink-500 text-xl font-bold">
-Money is:
-</legend>
-
-<label class="block mt-4">
-<input type="radio" name="entry.977999315" value="Security">
- Security
-</label>
-
-<label class="block mt-2">
-<input type="radio" name="entry.977999315" value="A tool">
- A tool, not life
-</label>
-</fieldset>
-
-<!-- Q5 -->
-<fieldset class="border border-white/20 p-8">
-<legend class="text-pink-500 text-xl font-bold">
-Society rules are:
-</legend>
-
-<label class="block mt-4">
-<input type="radio" name="entry.1066647958" value="Necessary for order">
- Necessary for order
-</label>
-
-<label class="block mt-2">
-<input type="radio" name="entry.1066647958" value="Made to control people">
- Made to control people
-</label>
-</fieldset>
-
-<!-- Q6 -->
-<fieldset class="border border-white/20 p-8">
-<legend class="text-pink-500 text-xl font-bold">
-You feel more alive when:
-</legend>
-
-<label class="block mt-4">
-<input type="radio" name="entry.680283407" value="Everything is under control">
- Everything is under control
-</label>
-
-<label class="block mt-2">
-<input type="radio" name="entry.680283407" value="Things are unpredictable">
- Things are unpredictable
-</label>
-</fieldset>
-
-<!-- Q7 -->
-<fieldset class="border border-white/20 p-8">
-<legend class="text-pink-500 text-xl font-bold">
-Pain is:
-</legend>
-
-<label class="block mt-4">
-<input type="radio" name="entry.1758192376" value="Something to avoid">
- Something to avoid
-</label>
-
-<label class="block mt-2">
-<input type="radio" name="entry.1758192376" value="Something that teaches you">
- Something that teaches you
-</label>
-</fieldset>
-
-<!-- Q8 -->
-<fieldset class="border border-white/20 p-8">
-<legend class="text-pink-500 text-xl font-bold">
-Which is worse?
-</legend>
-
-<label class="block mt-4">
-<input type="radio" name="entry.2015307494" value="Being poor">
- Being poor
-</label>
-
-<label class="block mt-2">
-<input type="radio" name="entry.2015307494" value="Being controlled">
- Being controlled
-</label>
-</fieldset>
-
-<!-- Q9 -->
-<fieldset class="border border-white/20 p-8">
-<legend class="text-pink-500 text-xl font-bold">
-Happiness comes from:
-</legend>
-
-<label class="block mt-4">
-<input type="radio" name="entry.1241136856" value="Comfort and stability">
- Comfort and stability
-</label>
-
-<label class="block mt-2">
-<input type="radio" name="entry.1241136856" value="Freedom and purpose">
- Freedom and purpose
-</label>
-</fieldset>
-
-<!-- Q10 -->
-<fieldset class="border border-white/20 p-8">
-<legend class="text-pink-500 text-xl font-bold">
-You are more:
-</legend>
-
-<label class="block mt-4">
-<input type="radio" name="entry.1500555301" value="Realistic">
- Realistic
-</label>
-
-<label class="block mt-2">
-<input type="radio" name="entry.1500555301" value="Revolutionary">
- Revolutionary
-</label>
-</fieldset>
-
-<!-- SUBMIT -->
-<section class="text-center pt-10">
-<button
-type="submit"
-class="px-16 py-4 bg-pink-500 text-black font-bold text-xl hover:scale-105 transition"
->
-SUBMIT TEST
-</button>
-</section>
-
-</form>
-</section>
-<!-- FOOTER -->
-    <footer class="w-full bg-black/90 border-t border-white/10 px-8 py-7">
-      <section class="max-w-7xl mx-auto flex items-center justify-between">
-        <!-- Left text -->
-        <p class="text-sm text-white/60 tracking-wide">
-          © 2026 pandeyarchit68 • All rights reserved.
-        </p>
-
-        <!-- Social icons -->
-        <nav class="flex items-center gap-6">
-          <!-- Instagram -->
-          <a
-            href="https://www.instagram.com/pandeyarchit68/"
-            target="_blank"
-            aria-label="Instagram"
-            class="hover:scale-110 transition"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              class="w-6 h-6 fill-none stroke-white/70 stroke-[1.5] hover:stroke-pink-500 transition"
-            >
-              <rect x="3" y="3" width="18" height="18" rx="5" ry="5" />
-              <circle cx="12" cy="12" r="4" />
-              <circle cx="17" cy="7" r="1" fill="currentColor" stroke="none" />
-            </svg>
-          </a>
-
-          <!-- LinkedIn -->
-          <a
-            href="https://www.linkedin.com/in/pandeyarchit68/"
-            target="_blank"
-            class="hover:scale-110 transition"
-          >
-            <svg
-              class="w-6 h-6 fill-white/70 hover:fill-blue-500"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M4.98 3.5a2.48 2.48 0 1 0 0 4.96 2.48 2.48 0 0 0 0-4.96zM3 8.98h4v12H3zM9 8.98h3.8v1.6h.05a4.2 4.2 0 0 1 3.78-2.08c4.04 0 4.78 2.66 4.78 6.12v6.36h-4v-5.64c0-1.34-.02-3.06-1.86-3.06-1.86 0-2.14 1.45-2.14 2.96v5.74H9z"
-              />
-            </svg>
-          </a>
-
-          <!-- GitHub -->
-          <a
-            href="https://github.com/pandeyarchit68"
-            target="_blank"
-            class="hover:scale-110 transition"
-          >
-            <svg
-              class="w-6 h-6 fill-white/70 hover:fill-white"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M12 .5A12 12 0 0 0 0 12.8c0 5.4 3.4 10 8.2 11.6.6.1.8-.3.8-.6v-2.2c-3.3.7-4-1.6-4-1.6-.5-1.3-1.3-1.6-1.3-1.6-1-.7.1-.7.1-.7 1.2.1 1.8 1.3 1.8 1.3 1 .1 1.6.7 1.8 1.1.3.6 1.2 1.1 2.1.8.1-.8.4-1.4.7-1.7-2.7-.3-5.5-1.4-5.5-6a4.7 4.7 0 0 1 1.2-3.3c-.1-.3-.5-1.6.1-3.3 0 0 1-.3 3.4 1.3a11.8 11.8 0 0 1 6.2 0c2.4-1.6 3.4-1.3 3.4-1.3.6 1.7.2 3 .1 3.3a4.7 4.7 0 0 1 1.2 3.3c0 4.6-2.8 5.7-5.5 6 .4.4.8 1.1.8 2.2v3.2c0 .3.2.7.8.6A12.2 12.2 0 0 0 24 12.8 12 12 0 0 0 12 .5z"
-              />
-            </svg>
-          </a>
-        </nav>
+      <!-- SUBMIT -->
+      <section class="text-center pt-6 sm:pt-10">
+        <button type="submit"
+          class="w-full sm:w-auto px-12 sm:px-16 py-4 bg-pink-500 text-black font-bold text-lg sm:text-xl hover:scale-105 hover:bg-pink-400 transition rounded">
+          SUBMIT TEST
+        </button>
       </section>
-    </footer>
+
+    </form>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="w-full bg-black/90 border-t border-white/10 px-5 sm:px-8 py-7">
+    <section class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p class="text-sm text-white/60 tracking-wide text-center sm:text-left">
+        © 2026 pandeyarchit68 • All rights reserved.
+      </p>
+      <nav class="flex items-center gap-6">
+        <a href="https://www.instagram.com/pandeyarchit68/" target="_blank" aria-label="Instagram" class="hover:scale-110 transition">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-6 h-6 fill-none stroke-white/70 stroke-[1.5] hover:stroke-pink-500 transition">
+            <rect x="3" y="3" width="18" height="18" rx="5" ry="5" />
+            <circle cx="12" cy="12" r="4" />
+            <circle cx="17" cy="7" r="1" fill="currentColor" stroke="none" />
+          </svg>
+        </a>
+        <a href="https://www.linkedin.com/in/pandeyarchit68/" target="_blank" class="hover:scale-110 transition">
+          <svg class="w-6 h-6 fill-white/70 hover:fill-blue-500 transition" viewBox="0 0 24 24">
+            <path d="M4.98 3.5a2.48 2.48 0 1 0 0 4.96 2.48 2.48 0 0 0 0-4.96zM3 8.98h4v12H3zM9 8.98h3.8v1.6h.05a4.2 4.2 0 0 1 3.78-2.08c4.04 0 4.78 2.66 4.78 6.12v6.36h-4v-5.64c0-1.34-.02-3.06-1.86-3.06-1.86 0-2.14 1.45-2.14 2.96v5.74H9z"/>
+          </svg>
+        </a>
+        <a href="https://github.com/pandeyarchit68" target="_blank" class="hover:scale-110 transition">
+          <svg class="w-6 h-6 fill-white/70 hover:fill-white transition" viewBox="0 0 24 24">
+            <path d="M12 .5A12 12 0 0 0 0 12.8c0 5.4 3.4 10 8.2 11.6.6.1.8-.3.8-.6v-2.2c-3.3.7-4-1.6-4-1.6-.5-1.3-1.3-1.6-1.3-1.6-1-.7.1-.7.1-.7 1.2.1 1.8 1.3 1.8 1.3 1 .1 1.6.7 1.8 1.1.3.6 1.2 1.1 2.1.8.1-.8.4-1.4.7-1.7-2.7-.3-5.5-1.4-5.5-6a4.7 4.7 0 0 1 1.2-3.3c-.1-.3-.5-1.6.1-3.3 0 0 1-.3 3.4 1.3a11.8 11.8 0 0 1 6.2 0c2.4-1.6 3.4-1.3 3.4-1.3.6 1.7.2 3 .1 3.3a4.7 4.7 0 0 1 1.2 3.3c0 4.6-2.8 5.7-5.5 6 .4.4.8 1.1.8 2.2v3.2c0 .3.2.7.8.6A12.2 12.2 0 0 0 24 12.8 12 12 0 0 0 12 .5z"/>
+          </svg>
+        </a>
+      </nav>
+    </section>
+  </footer>
 
 </body>
 </html>

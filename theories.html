@@ -1,396 +1,285 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="favicon-theories.png">
     <meta name="description" content="Deep analysis and theories about Fight Club, Tyler Durden, consumerism, identity, and the psychology behind the film.">
-
-  <meta property="og:title" content="Fight Club Theories & Philosophy">
-  <meta property="og:description" content="Deep analysis and theories about Fight Club and Tyler Durden.">
-    <title>Theories and Philosophy of Fight Club </title>
+    <meta property="og:title" content="Fight Club Theories & Philosophy">
+    <meta property="og:description" content="Deep analysis and theories about Fight Club and Tyler Durden.">
+    <title>Theories and Philosophy of Fight Club</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- daisy UI cdn-->
     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
-<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   </head>
 
   <body class="bg-black text-white">
+
     <!-- NAVBAR -->
-    <header
-      class="fixed top-0 z-50 w-full flex items-center justify-between
-             bg-black/80 backdrop-blur px-7 py-4 border-b border-white/10"
-    >
-      <div class="flex items-center gap-12">
-        <h1
-          class="text-2xl text-pink-500 font-extrabold tracking-tight
-                 hover:scale-105 transition cursor-pointer"
-        >
+    <header class="fixed top-0 z-50 w-full bg-black/80 backdrop-blur border-b border-white/10">
+      <nav class="flex items-center justify-between px-5 py-4 max-w-7xl mx-auto">
+        <!-- Logo + Nav grouped left -->
+        <div class="flex items-center gap-8">
+        <a href="index.html" class="text-xl sm:text-2xl text-pink-500 font-extrabold tracking-tight hover:scale-105 transition shrink-0">
           FIGHT CLUB
-        </h1>
+        </a>
+        <ul class="hidden md:flex items-center gap-6 text-sm">
+          <li><a href="index.html" class="hover:text-blue-400 transition">Home</a></li>
+          <li><a href="movie.html" class="hover:text-blue-400 transition">Movie</a></li>
+          <li class="relative group">
+            <button class="hover:text-blue-400 transition px-2 py-1">Values ▾</button>
+            <ul class="absolute top-full left-0 mt-2 w-44 bg-black/90 border border-white/10 rounded-lg overflow-hidden opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 shadow-xl">
+              <li><a href="theories.html" class="block px-4 py-2.5 hover:text-blue-400 hover:bg-white/5 transition">Theories</a></li>
+              <li><a href="rules.html" class="block px-4 py-2.5 hover:text-blue-400 hover:bg-white/5 transition">Rules</a></li>
+              <li><a href="characters.html" class="block px-4 py-2.5 hover:text-blue-400 hover:bg-white/5 transition">Characters</a></li>
+            </ul>
+          </li>
+        </ul>
+        </div>
 
-        <nav class="flex items-center gap-6">
-          <a href="index.html" class="hover:text-blue-400">
-            Home
-          </a>
-          
-          <a href="movie.html" class="hover:text-blue-400">
-            Movie </a>
-
-          <div class="dropdown">
-            <div tabindex="0" role="button" class="bg-black/80 text-white px-4 py-2 rounded-md hover:text-blue-400 transition">Values</div>
-              <ul tabindex="-1" class="dropdown-content menu bg-black/80 rounded-box z-1 w-52 p-2 shadow-sm mt-2">
-                <li><a href="#" class="hover:text-blue-400 hover:bg-gray-900">Theories</a></li>
-                <!--hr class="border-white/40"-->
-                <li><a href="rules.html" class="hover:text-blue-400 hover:bg-gray-900">Rules</a></li>
-                <!--hr class="border-white/40" /-->
-                <li><a href="characters.html" class="hover:text-blue-400 hover:bg-gray-900">Characters</a></li>
-              </ul>
-          </div>
-        </nav>
-      </div>
-
-      <form class="flex items-center gap-2 mx-10">
-        <input
-          type="search"
-          placeholder="Search"
-          class="bg-transparent border border-white/40 text-white
-                 px-3 py-1.5 rounded-md placeholder-white/60
-                 focus:outline-none focus:border-white
-                 hover:border-pink-400 transition"
-        />
-
-        <button
-          type="submit"
-          class="border border-white/40 text-white hover:border-pink-400
-                 px-4 py-1.5 rounded-md
-                 hover:text-pink-400 hover:font-bold transition"
-        >
-          Search
+        <!-- Desktop search -->
+        <form class="hidden md:flex items-center gap-2">
+          <input type="search" placeholder="Search"
+            class="bg-transparent border border-white/40 text-white px-3 py-1.5 rounded-md text-sm placeholder-white/60 focus:outline-none focus:border-white hover:border-pink-400 transition w-36 lg:w-48" />
+          <button type="submit"
+            class="border border-white/40 text-white hover:border-pink-400 px-3 py-1.5 rounded-md text-sm hover:text-pink-400 hover:font-bold transition">Search</button>
+        </form>
+        <button id="menuBtn" aria-label="Open menu" class="md:hidden flex flex-col gap-1.5 p-2">
+          <span class="block w-6 h-0.5 bg-white"></span>
+          <span class="block w-6 h-0.5 bg-white"></span>
+          <span class="block w-6 h-0.5 bg-white"></span>
         </button>
-      </form>
+      </nav>
+      <aside id="mobileMenu" class="hidden md:hidden bg-black/95 border-t border-white/10 px-5 pb-6 pt-4 space-y-4">
+        <form class="flex gap-2 mb-4">
+          <input type="search" placeholder="Search"
+            class="flex-1 bg-transparent border border-white/40 text-white px-3 py-2 rounded-md text-sm placeholder-white/60 focus:outline-none focus:border-white" />
+          <button type="submit"
+            class="border border-white/40 text-white px-3 py-2 rounded-md text-sm hover:text-pink-400 hover:border-pink-400 transition">Search</button>
+        </form>
+        <a href="index.html" class="block py-2 hover:text-blue-400 transition border-b border-white/10">Home</a>
+        <a href="movie.html" class="block py-2 hover:text-blue-400 transition border-b border-white/10">Movie</a>
+        <p class="text-white/40 text-xs uppercase tracking-widest pt-1">Values</p>
+        <a href="theories.html" class="block py-2 pl-3 hover:text-blue-400 transition border-b border-white/10">Theories</a>
+        <a href="rules.html" class="block py-2 pl-3 hover:text-blue-400 transition border-b border-white/10">Rules</a>
+        <a href="characters.html" class="block py-2 pl-3 hover:text-blue-400 transition">Characters</a>
+      </aside>
     </header>
 
-<main class="bg-black text-white selection:bg-pink-500 selection:text-black">
-
-  <!-- HERO -->
-  <section class="min-h-screen flex flex-col items-center justify-center text-center px-6 gap-8 relative overflow-hidden">
-
-    <img src="theories-bg.png" class="absolute inset-0 w-full h-full object-cover opacity-70">
-
-    <h1 class="text-7xl font-bold text-pink-500 relative">
-  <span class="absolute left-1 top-1 text-pink-500/30">THEORIES</span>
-  THEORIES
-</h1>
-
-    <p class="mt-8 text-white leading-relaxed text-lg">
-      Some films are watched.  
-      Some films stay.  
-      <br><br>
-      This one... changes you.
-    </p>
-
-
-  </section>
-
-
-  <!-- CINEMA CONSUMPTION -->
-  <section class="py-2 px-6 max-w-4xl mx-auto">
-
-    <span class="block w-full h-[1px] bg-gradient-to-r from-transparent via-pink-500/40 to-transparent mb-16"></span>
-
-    <h2 class="mt-24 text-5xl font-bold text-pink-500">
-      We Consume Stories Like Junk Food
-    </h2>
-
-    <p class="mt-8 text-white/60 hover:text-white transition text-lg leading-relaxed">
-      Today, films are everywhere. One ends, we start another. Then another.  
-      We consume stories the way we consume junk food... quickly, endlessly, without depth.
-    </p>
-
-    <p class="mt-4 text-white/60 hover:text-white transition mb-28">
-      But a real director doesn’t want you to forget.  
-      He wants the film to stay inside you. To travel within you.
-    </p>
-
-  </section>
-
-
-  <!-- REWATCH THEORY -->
-  <section class="px-6 bg-zinc-950 text-center">
-
-    <span class="block w-full h-[1px] bg-gradient-to-r from-transparent via-pink-500/40 to-transparent mb-16"></span>
-
-    <h2 class="text-5xl font-bold text-pink-500 mt-24">
-      A Film That Changes With You
-    </h2>
-
-    <article class="max-w-4xl mx-auto mt-10 pb-28">
-
-      <p class="text-white/60 hover:text-white transition text-lg leading-relaxed">
-        Some films are made to be watched twice.  
-        Because they reveal themselves in layers.
-      </p>
-
-      <p class="mt-6 text-white/60 hover:text-white transition">
-        As a teenager, it feels like rebellion.  
-        Later it feels like recklessness.  
-        And someday it feels like satire.
-      </p>
-
-      <p class="mt-6 text-white/70 mb-28">
-        Maybe… the film isn’t celebrating Tyler.  
-        Maybe it’s warning us.
-      </p>
-
-    </article>
-
-  </section>
-
-
-  <!-- TYLER THEORY -->
-  <section class="px-6 max-w-4xl mx-auto bg-black pb-28">
-
-    <span class="block w-full h-[1px] bg-gradient-to-r from-transparent via-pink-500/40 to-transparent mb-16"></span>
-
-    <h2 class="text-5xl font-bold text-pink-500 relative mt-24">
-      <span class="absolute left-1 top-1 text-pink-500/30">Tyler Durden</span>
-      Tyler Durden is a Symptom
-    </h2>
-
-    <p class="mt-8 text-white/60 hover:text-white transition text-lg leading-relaxed">
-      Tyler is not just a character.  
-      He is born from conflict.
-    </p>
-
-    <p class="mt-4 text-white/60 hover:text-white transition">
-      The narrator wants freedom but lives like a slave.  
-      He hates his life but cannot leave it.
-    </p>
-
-    <p class="mt-6 text-white/70">
-      Tyler is what happens when this contradiction breaks.
-    </p>
-
-  </section>
-
-
-  <!-- SLAVERY -->
-  <section class="px-6 bg-zinc-950 text-center pb-28">
-
-    <span class="block w-full h-[1px] bg-gradient-to-r from-transparent via-pink-500/40 to-transparent mb-16"></span>
-
-    <h2 class="text-5xl font-bold text-pink-500 mt-24 relative">
-      The Invisible Prison
-    </h2>
-
-    <article class="max-w-4xl mx-auto mt-10">
-
-      <p class="text-white/60 hover:text-white transition text-lg leading-relaxed">
-        We are taught to “do something”.  <br>
-        Become something. Achieve something.
-      </p>
-
-      <p class="mt-6 text-white/60 hover:text-white transition">
-        And we spend our lives chasing completion... through work, success, and people.
-      </p>
-
-      <p class="mt-6 text-white/70">
-        But everything we get… becomes ordinary.
-      </p>
-
-      <p class="mt-6 text-white/70">
-        This is slavery.  
-        And we don’t even realize we’re imprisoned.
-      </p>
-
-    </article>
-
-  </section>
-
-
-  <!-- CONSUMERISM -->
-  <section class="py-32 text-center bg-black px-6">
-
-    <blockquote class="text-4xl md:text-5xl max-w-4xl mx-auto text-white/70 leading-relaxed">
-      “The things you own  
-      <span class="text-pink-500">end up owning you.</span>”
-    </blockquote>
-
-  </section>
-
-
-  <!-- AWAKENING -->
-  <section class="py-28 px-6 max-w-4xl mx-auto">
-
-    <span class="block w-full h-[1px] bg-gradient-to-r from-transparent via-pink-500/40 to-transparent mb-16"></span>
-
-    <h2 class="text-5xl font-bold text-pink-500">
-      Pain as Awakening
-    </h2>
-
-    <p class="mt-8 text-white/60 hover:text-white transition text-lg leading-relaxed">
-      Tyler wants to wake the narrator up.  
-      Not through peace but through pain.
-    </p>
-
-    <p class="mt-6 text-white/60 hover:text-white transition">
-      Pain forces presence.  
-      It drags you into the moment.
-    </p>
-
-    <p class="mt-6 text-white/70">
-      Like meditation focuses on breath, Tyler focuses on pain.    
-      Tyler uses violence to force awareness.
-    </p>
-
-  </section>
-
-
-  <!-- FIGHT CLUB -->
-  <section class="pb-16 px-6 bg-zinc-950 text-center">
-
-    <span class="block w-full h-[1px] bg-gradient-to-r from-transparent via-pink-500/40 to-transparent mb-16"></span>
-
-    <h2 class="text-5xl font-bold text-pink-500">
-      Why Fight Club Works
-    </h2>
-
-    <article class="max-w-4xl mx-auto mt-10">
-
-      <p class="text-white/60 hover:text-white transition text-lg leading-relaxed">
-        Fight Club doesn’t solve problems.  
-        It just makes everything else feel small.
-      </p>
-
-      <p class="mt-6 text-white/60 hover:text-white transition">
-        After pain - worries disappear.  
-        After chaos - silence feels peaceful.
-      </p>
-
-      <p class="mt-6 text-white/70">
-        People felt alive again.
-      </p>
-
-    </article>
-
-  </section>
-
-
-  <!-- PROJECT MAYHEM -->
-  <section class="pb-28 px-6 max-w-4xl mx-auto">
-
-    <span class="block w-full h-[1px] bg-gradient-to-r from-transparent via-pink-500/40 to-transparent mb-16"></span>
-
-    <h2 class="text-5xl font-bold text-pink-500">
-      From Freedom to Control
-    </h2>
-
-    <p class="mt-8 text-white/60 hover:text-white transition text-lg leading-relaxed">
-      Fight Club becomes Project Mayhem.
-    </p>
-
-    <p class="mt-6 text-white/60 hover:text-white transition">
-      Individuals become a crowd.  
-      Thinking disappears. Obedience begins.
-    </p>
-
-    <p class="mt-6 text-white/70">
-      Tyler becomes the system he wanted to destroy.
-    </p>
-
-  </section>
-
-
-  <!-- EXTREMES -->
-  <section class="pb-28 px-6 bg-zinc-950 text-center">
-
-    <span class="block w-full h-[1px] bg-gradient-to-r from-transparent via-pink-500/40 to-transparent mb-16"></span>
-
-    <h2 class="text-5xl font-bold text-pink-500">
-      Extremes Are the Same
-    </h2>
-
-    <article class="max-w-4xl mx-auto mt-10">
-
-      <p class="text-white/60 hover:text-white transition text-lg leading-relaxed">
-        Absolute control and absolute chaos  
-        are not opposites.
-      </p>
-
-      <p class="mt-6 text-white/70">
-        They lead to the same place.
-      </p>
-
-    </article>
-
-  </section>
-
-
-  <!-- FINAL -->
-  <section class="py-40 px-6 text-center relative overflow-hidden">
-
-    <span class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,0,80,0.06),transparent_70%)]"></span>
-
-    <h2 class="text-6xl font-black text-pink-500 relative">
-      THE REAL TRUTH
-    </h2>
-
-    <p class="mt-10 max-w-3xl mx-auto text-xl text-white/70 leading-relaxed relative">
-      Tyler Durden is not the solution.  
-      He is the symptom.
-      <br><br>
-      A reaction to a hollow life.  
-      A revolt against unconscious existence.
-      <br><br>
-      The fight…  
-      has always been within you.
-    </p>
-
-  </section>
-
-</main>
-
-<!-- FOOTER -->
-    <footer class="w-full bg-black/90 border-t border-white/5 px-8 py-6">
-  <section class="max-w-7xl mx-auto flex items-center justify-between">
-    
-    <!-- Left text -->
-    <p class="text-sm text-white/60 tracking-wide">
-      © 2026 pandeyarchit68 • All rights reserved.
-    </p>
-
-    <!-- Social icons -->
-    <nav class="flex items-center gap-6">
-      
-      <!-- Instagram -->
-      <a href="https://www.instagram.com/pandeyarchit68/" target="_blank" aria-label="Instagram">
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 24 24"
-    class="w-6 h-6 fill-none stroke-white/70 stroke-[1.5] hover:stroke-pink-500 transition"
-  >
-    <rect x="3" y="3" width="18" height="18" rx="5" ry="5" />
-    <circle cx="12" cy="12" r="4" />
-    <circle cx="17" cy="7" r="1" fill="currentColor" stroke="none" />
-  </svg>
-</a>
-
-      <!-- LinkedIn -->
-      <a href="https://www.linkedin.com/in/pandeyarchit68/" target="_blank" class="hover:scale-110 transition">
-        <svg class="w-6 h-6 fill-white/70 hover:fill-blue-500" viewBox="0 0 24 24">
-          <path d="M4.98 3.5a2.48 2.48 0 1 0 0 4.96 2.48 2.48 0 0 0 0-4.96zM3 8.98h4v12H3zM9 8.98h3.8v1.6h.05a4.2 4.2 0 0 1 3.78-2.08c4.04 0 4.78 2.66 4.78 6.12v6.36h-4v-5.64c0-1.34-.02-3.06-1.86-3.06-1.86 0-2.14 1.45-2.14 2.96v5.74H9z"/>
-        </svg>
-      </a>
-
-      <!-- GitHub -->
-      <a href="https://github.com/pandeyarchit68" target="_blank" class="hover:scale-110 transition">
-        <svg class="w-6 h-6 fill-white/70 hover:fill-white" viewBox="0 0 24 24">
-          <path d="M12 .5A12 12 0 0 0 0 12.8c0 5.4 3.4 10 8.2 11.6.6.1.8-.3.8-.6v-2.2c-3.3.7-4-1.6-4-1.6-.5-1.3-1.3-1.6-1.3-1.6-1-.7.1-.7.1-.7 1.2.1 1.8 1.3 1.8 1.3 1 .1 1.6.7 1.8 1.1.3.6 1.2 1.1 2.1.8.1-.8.4-1.4.7-1.7-2.7-.3-5.5-1.4-5.5-6a4.7 4.7 0 0 1 1.2-3.3c-.1-.3-.5-1.6.1-3.3 0 0 1-.3 3.4 1.3a11.8 11.8 0 0 1 6.2 0c2.4-1.6 3.4-1.3 3.4-1.3.6 1.7.2 3 .1 3.3a4.7 4.7 0 0 1 1.2 3.3c0 4.6-2.8 5.7-5.5 6 .4.4.8 1.1.8 2.2v3.2c0 .3.2.7.8.6A12.2 12.2 0 0 0 24 12.8 12 12 0 0 0 12 .5z"/>
-        </svg>
-      </a>
-
-    </nav>
-  </section>
-</footer>
+    <script>
+      const btn = document.getElementById('menuBtn');
+      const menu = document.getElementById('mobileMenu');
+      btn.addEventListener('click', () => menu.classList.toggle('hidden'));
+    </script>
+
+    <main class="bg-black text-white selection:bg-pink-500 selection:text-black">
+
+      <!-- HERO -->
+      <section class="min-h-screen flex flex-col items-center justify-center text-center px-6 gap-8 relative overflow-hidden">
+        <img src="theories-bg.png" class="absolute inset-0 w-full h-full object-cover opacity-70" alt="">
+        <h1 class="text-5xl sm:text-7xl font-bold text-pink-500 relative">
+          <span class="absolute left-1 top-1 text-pink-500/30">THEORIES</span>
+          THEORIES
+        </h1>
+        <p class="mt-4 sm:mt-8 text-white leading-relaxed text-base sm:text-lg relative">
+          Some films are watched.<br />
+          Some films stay.<br /><br />
+          This one... changes you.
+        </p>
+      </section>
+
+      <!-- CINEMA CONSUMPTION -->
+      <section class="py-2 px-5 sm:px-6 max-w-4xl mx-auto">
+        <span class="block w-full h-px bg-gradient-to-r from-transparent via-pink-500/40 to-transparent mb-16"></span>
+        <h2 class="mt-16 sm:mt-24 text-3xl sm:text-5xl font-bold text-pink-500">
+          We Consume Stories Like Junk Food
+        </h2>
+        <p class="mt-8 text-white/60 hover:text-white transition text-base sm:text-lg leading-relaxed">
+          Today, films are everywhere. One ends, we start another. Then another.<br />
+          We consume stories the way we consume junk food... quickly, endlessly, without depth.
+        </p>
+        <p class="mt-4 text-white/60 hover:text-white transition mb-20 sm:mb-28">
+          But a real director doesn't want you to forget.<br />
+          He wants the film to stay inside you. To travel within you.
+        </p>
+      </section>
+
+      <!-- REWATCH THEORY -->
+      <section class="px-5 sm:px-6 bg-zinc-950 text-center">
+        <span class="block w-full h-px bg-gradient-to-r from-transparent via-pink-500/40 to-transparent mb-16"></span>
+        <h2 class="text-3xl sm:text-5xl font-bold text-pink-500 mt-16 sm:mt-24">
+          A Film That Changes With You
+        </h2>
+        <article class="max-w-4xl mx-auto mt-10 pb-20 sm:pb-28">
+          <p class="text-white/60 hover:text-white transition text-base sm:text-lg leading-relaxed">
+            Some films are made to be watched twice.<br />
+            Because they reveal themselves in layers.
+          </p>
+          <p class="mt-6 text-white/60 hover:text-white transition">
+            As a teenager, it feels like rebellion.<br />
+            Later it feels like recklessness.<br />
+            And someday it feels like satire.
+          </p>
+          <p class="mt-6 text-white/70 mb-20 sm:mb-28">
+            Maybe… the film isn't celebrating Tyler.<br />
+            Maybe it's warning us.
+          </p>
+        </article>
+      </section>
+
+      <!-- TYLER THEORY -->
+      <section class="px-5 sm:px-6 max-w-4xl mx-auto bg-black pb-20 sm:pb-28">
+        <span class="block w-full h-px bg-gradient-to-r from-transparent via-pink-500/40 to-transparent mb-16"></span>
+        <h2 class="text-3xl sm:text-5xl font-bold text-pink-500 relative mt-16 sm:mt-24">
+          <span class="absolute left-1 top-1 text-pink-500/30">Tyler Durden</span>
+          Tyler Durden is a Symptom
+        </h2>
+        <p class="mt-8 text-white/60 hover:text-white transition text-base sm:text-lg leading-relaxed">
+          Tyler is not just a character.<br />
+          He is born from conflict.
+        </p>
+        <p class="mt-4 text-white/60 hover:text-white transition">
+          The narrator wants freedom but lives like a slave.<br />
+          He hates his life but cannot leave it.
+        </p>
+        <p class="mt-6 text-white/70">
+          Tyler is what happens when this contradiction breaks.
+        </p>
+      </section>
+
+      <!-- SLAVERY -->
+      <section class="px-5 sm:px-6 bg-zinc-950 text-center pb-20 sm:pb-28">
+        <span class="block w-full h-px bg-gradient-to-r from-transparent via-pink-500/40 to-transparent mb-16"></span>
+        <h2 class="text-3xl sm:text-5xl font-bold text-pink-500 mt-16 sm:mt-24">The Invisible Prison</h2>
+        <article class="max-w-4xl mx-auto mt-10">
+          <p class="text-white/60 hover:text-white transition text-base sm:text-lg leading-relaxed">
+            We are taught to "do something".<br />
+            Become something. Achieve something.
+          </p>
+          <p class="mt-6 text-white/60 hover:text-white transition">
+            And we spend our lives chasing completion... through work, success, and people.
+          </p>
+          <p class="mt-6 text-white/70">But everything we get… becomes ordinary.</p>
+          <p class="mt-6 text-white/70">
+            This is slavery.<br />
+            And we don't even realize we're imprisoned.
+          </p>
+        </article>
+      </section>
+
+      <!-- CONSUMERISM -->
+      <section class="py-24 sm:py-32 text-center bg-black px-5 sm:px-6">
+        <blockquote class="text-3xl sm:text-4xl md:text-5xl max-w-4xl mx-auto text-white/70 leading-relaxed">
+          "The things you own<br />
+          <span class="text-pink-500">end up owning you.</span>"
+        </blockquote>
+      </section>
+
+      <!-- AWAKENING -->
+      <section class="py-20 sm:py-28 px-5 sm:px-6 max-w-4xl mx-auto">
+        <span class="block w-full h-px bg-gradient-to-r from-transparent via-pink-500/40 to-transparent mb-16"></span>
+        <h2 class="text-3xl sm:text-5xl font-bold text-pink-500">Pain as Awakening</h2>
+        <p class="mt-8 text-white/60 hover:text-white transition text-base sm:text-lg leading-relaxed">
+          Tyler wants to wake the narrator up.<br />
+          Not through peace but through pain.
+        </p>
+        <p class="mt-6 text-white/60 hover:text-white transition">
+          Pain forces presence.<br />
+          It drags you into the moment.
+        </p>
+        <p class="mt-6 text-white/70">
+          Like meditation focuses on breath, Tyler focuses on pain.<br />
+          Tyler uses violence to force awareness.
+        </p>
+      </section>
+
+      <!-- FIGHT CLUB -->
+      <section class="pb-16 px-5 sm:px-6 bg-zinc-950 text-center">
+        <span class="block w-full h-px bg-gradient-to-r from-transparent via-pink-500/40 to-transparent mb-16"></span>
+        <h2 class="text-3xl sm:text-5xl font-bold text-pink-500">Why Fight Club Works</h2>
+        <article class="max-w-4xl mx-auto mt-10">
+          <p class="text-white/60 hover:text-white transition text-base sm:text-lg leading-relaxed">
+            Fight Club doesn't solve problems.<br />
+            It just makes everything else feel small.
+          </p>
+          <p class="mt-6 text-white/60 hover:text-white transition">
+            After pain - worries disappear.<br />
+            After chaos - silence feels peaceful.
+          </p>
+          <p class="mt-6 text-white/70">People felt alive again.</p>
+        </article>
+      </section>
+
+      <!-- PROJECT MAYHEM -->
+      <section class="pb-20 sm:pb-28 px-5 sm:px-6 max-w-4xl mx-auto">
+        <span class="block w-full h-px bg-gradient-to-r from-transparent via-pink-500/40 to-transparent mb-16"></span>
+        <h2 class="text-3xl sm:text-5xl font-bold text-pink-500">From Freedom to Control</h2>
+        <p class="mt-8 text-white/60 hover:text-white transition text-base sm:text-lg leading-relaxed">
+          Fight Club becomes Project Mayhem.
+        </p>
+        <p class="mt-6 text-white/60 hover:text-white transition">
+          Individuals become a crowd.<br />
+          Thinking disappears. Obedience begins.
+        </p>
+        <p class="mt-6 text-white/70">Tyler becomes the system he wanted to destroy.</p>
+      </section>
+
+      <!-- EXTREMES -->
+      <section class="pb-20 sm:pb-28 px-5 sm:px-6 bg-zinc-950 text-center">
+        <span class="block w-full h-px bg-gradient-to-r from-transparent via-pink-500/40 to-transparent mb-16"></span>
+        <h2 class="text-3xl sm:text-5xl font-bold text-pink-500">Extremes Are the Same</h2>
+        <article class="max-w-4xl mx-auto mt-10">
+          <p class="text-white/60 hover:text-white transition text-base sm:text-lg leading-relaxed">
+            Absolute control and absolute chaos<br />
+            are not opposites.
+          </p>
+          <p class="mt-6 text-white/70">They lead to the same place.</p>
+        </article>
+      </section>
+
+      <!-- FINAL -->
+      <section class="py-28 sm:py-40 px-5 sm:px-6 text-center relative overflow-hidden">
+        <span class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,0,80,0.06),transparent_70%)]"></span>
+        <h2 class="text-4xl sm:text-6xl font-black text-pink-500 relative">THE REAL TRUTH</h2>
+        <p class="mt-10 max-w-3xl mx-auto text-lg sm:text-xl text-white/70 leading-relaxed relative">
+          Tyler Durden is not the solution.<br />
+          He is the symptom.<br /><br />
+          A reaction to a hollow life.<br />
+          A revolt against unconscious existence.<br /><br />
+          The fight…<br />
+          has always been within you.
+        </p>
+      </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="w-full bg-black/90 border-t border-white/5 px-5 sm:px-8 py-6">
+      <section class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+        <p class="text-sm text-white/60 tracking-wide text-center sm:text-left">
+          © 2026 pandeyarchit68 • All rights reserved.
+        </p>
+        <nav class="flex items-center gap-6">
+          <a href="https://www.instagram.com/pandeyarchit68/" target="_blank" aria-label="Instagram" class="hover:scale-110 transition">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-6 h-6 fill-none stroke-white/70 stroke-[1.5] hover:stroke-pink-500 transition">
+              <rect x="3" y="3" width="18" height="18" rx="5" ry="5" />
+              <circle cx="12" cy="12" r="4" />
+              <circle cx="17" cy="7" r="1" fill="currentColor" stroke="none" />
+            </svg>
+          </a>
+          <a href="https://www.linkedin.com/in/pandeyarchit68/" target="_blank" class="hover:scale-110 transition">
+            <svg class="w-6 h-6 fill-white/70 hover:fill-blue-500 transition" viewBox="0 0 24 24">
+              <path d="M4.98 3.5a2.48 2.48 0 1 0 0 4.96 2.48 2.48 0 0 0 0-4.96zM3 8.98h4v12H3zM9 8.98h3.8v1.6h.05a4.2 4.2 0 0 1 3.78-2.08c4.04 0 4.78 2.66 4.78 6.12v6.36h-4v-5.64c0-1.34-.02-3.06-1.86-3.06-1.86 0-2.14 1.45-2.14 2.96v5.74H9z"/>
+            </svg>
+          </a>
+          <a href="https://github.com/pandeyarchit68" target="_blank" class="hover:scale-110 transition">
+            <svg class="w-6 h-6 fill-white/70 hover:fill-white transition" viewBox="0 0 24 24">
+              <path d="M12 .5A12 12 0 0 0 0 12.8c0 5.4 3.4 10 8.2 11.6.6.1.8-.3.8-.6v-2.2c-3.3.7-4-1.6-4-1.6-.5-1.3-1.3-1.6-1.3-1.6-1-.7.1-.7.1-.7 1.2.1 1.8 1.3 1.8 1.3 1 .1 1.6.7 1.8 1.1.3.6 1.2 1.1 2.1.8.1-.8.4-1.4.7-1.7-2.7-.3-5.5-1.4-5.5-6a4.7 4.7 0 0 1 1.2-3.3c-.1-.3-.5-1.6.1-3.3 0 0 1-.3 3.4 1.3a11.8 11.8 0 0 1 6.2 0c2.4-1.6 3.4-1.3 3.4-1.3.6 1.7.2 3 .1 3.3a4.7 4.7 0 0 1 1.2 3.3c0 4.6-2.8 5.7-5.5 6 .4.4.8 1.1.8 2.2v3.2c0 .3.2.7.8.6A12.2 12.2 0 0 0 24 12.8 12 12 0 0 0 12 .5z"/>
+            </svg>
+          </a>
+        </nav>
+      </section>
+    </footer>
 
   </body>
 </html>
