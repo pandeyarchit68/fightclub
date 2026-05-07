@@ -79,23 +79,39 @@
     <main class="h-screen">
       <section class="relative w-full h-screen bg-[linear-gradient(to_top,rgba(0,0,0,0.85),rgba(0,0,0,0.2)),url('fcbg.gif')] bg-cover bg-center">
 
-        <!-- Jack Mode — pinned to left quarter -->
+        <!-- Mobile: stacked centered buttons -->
+        <nav class="absolute bottom-12 left-0 right-0 flex flex-col items-center gap-5 px-8 sm:hidden">
+          <a href="jack.html"
+            class="w-full max-w-xs text-center px-8 py-4 border border-blue-500/70 text-white/80
+                   tracking-widest text-lg rounded-lg
+                   hover:border-blue-400 hover:text-blue-300 hover:bg-blue-500/10 hover:tracking-[0.2em] hover:scale-105
+                   transition-all duration-300">
+            Jack Mode
+          </a>
+          <a href="tyler.html"
+            class="w-full max-w-xs text-center px-8 py-4 border border-pink-500/70 text-pink-500/80
+                   tracking-widest text-lg rounded-lg
+                   hover:border-pink-400 hover:text-pink-300 hover:bg-pink-500/10 hover:tracking-[0.2em] hover:scale-105
+                   transition-all duration-300">
+            Tyler Mode
+          </a>
+        </nav>
+
+        <!-- Desktop: pinned to left and right quarters -->
         <a href="jack.html"
-          class="absolute bottom-16 sm:bottom-28 left-[12%] sm:left-[18%] -translate-x-1/2
-                 px-6 sm:px-8 py-4 sm:py-5 border border-blue-500
-                 text-center tracking-wider text-xl sm:text-2xl
-                 hover:text-pink-600 hover:font-bold hover:uppercase hover:border-4
-                 transition rounded-lg">
+          class="hidden sm:block absolute bottom-28 left-[28%] -translate-x-1/2
+                 px-8 py-5 border border-blue-500/70 text-white/80
+                 text-center tracking-widest text-xl rounded-lg
+                 hover:border-blue-400 hover:text-blue-300 hover:bg-blue-500/10 hover:tracking-[0.2em] hover:scale-105
+                 transition-all duration-300">
           Jack Mode
         </a>
-
-        <!-- Tyler Mode — pinned to right quarter -->
         <a href="tyler.html"
-          class="absolute bottom-16 sm:bottom-28 right-[12%] sm:right-[18%] translate-x-1/2
-                 px-6 sm:px-8 py-4 sm:py-5 border border-pink-500 text-pink-600
-                 text-center tracking-wider text-xl sm:text-2xl
-                 hover:text-blue-600 hover:font-bold hover:uppercase hover:border-4
-                 transition rounded-lg">
+          class="hidden sm:block absolute bottom-28 right-[28%] translate-x-1/2
+                 px-8 py-5 border border-pink-500/70 text-pink-500/80
+                 text-center tracking-widest text-xl rounded-lg
+                 hover:border-pink-400 hover:text-pink-300 hover:bg-pink-500/10 hover:tracking-[0.2em] hover:scale-105
+                 transition-all duration-300">
           Tyler Mode
         </a>
 

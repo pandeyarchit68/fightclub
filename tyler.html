@@ -114,6 +114,41 @@
         </span>
       </section>
 
+      <!-- HOSTILE CENTRED POPUP (auto-dismiss) -->
+      <aside id="hostilePopup"
+        class="fixed inset-0 z-[999] flex items-center justify-center pointer-events-none">
+        <p id="hostileText"
+          class="text-red-600 font-black text-4xl sm:text-6xl text-center px-6 leading-tight select-none opacity-0 transition-opacity duration-700"
+          style="font-family: 'Georgia', serif; text-shadow: 0 0 40px #ff000088, 2px 3px 0 #000; letter-spacing: 0.04em;">
+        </p>
+      </aside>
+
+      <script>
+        (function () {
+          const messages = [
+            "YOU'RE NOT\nSUPPOSED\nTO BE HERE.",
+            "STOP\nSCROLLING.",
+            "I\nSEE\nYOU.",
+            "GET\nOUT.",
+            "THIS\nIS NOT\nFOR YOU.",
+          ];
+          let i = 0;
+          const el = document.getElementById('hostileText');
+          const wrap = document.getElementById('hostilePopup');
+
+          function flash() {
+            if (i >= messages.length) return;
+            el.style.whiteSpace = 'pre-line';
+            el.textContent = messages[i++];
+            el.style.opacity = '1';
+            setTimeout(() => { el.style.opacity = '0'; }, 900);
+            setTimeout(flash, 2200);
+          }
+
+          setTimeout(flash, 1800);
+        })();
+      </script>
+
       <!-- TYLER SPEECH -->
       <section class="min-h-screen flex items-center justify-center px-5 sm:px-10 lg:px-32 bg-black py-20">
         <article class="flex flex-col lg:flex-row-reverse items-center gap-10 lg:gap-16 max-w-6xl w-full">
@@ -140,8 +175,133 @@
         </article>
       </section>
 
-      <!-- FAKE POPUPS -->
-      <section class="fixed bottom-4 sm:bottom-6 left-4 sm:left-6 flex flex-col gap-4 z-40 max-w-xs sm:max-w-sm">
+      <!-- FOURTH WALL BREAK — Tyler addresses the reader -->
+      <section class="py-24 sm:py-36 px-5 sm:px-10 bg-zinc-950 relative overflow-hidden">
+        <span class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(180,0,0,0.07),transparent_70%)]"></span>
+        <article class="max-w-3xl mx-auto text-center relative space-y-8">
+          <p class="text-red-500/40 text-xs uppercase tracking-[0.4em]">— Tyler is speaking —</p>
+          <h2 class="text-3xl sm:text-5xl font-black text-white leading-tight wow animate__animated animate__fadeIn">
+            You came here looking for something.
+          </h2>
+          <p class="text-white/60 text-lg sm:text-xl leading-relaxed wow animate__animated animate__fadeIn" data-wow-delay="0.3s">
+            A quote. A philosophy. Something to post.<br />
+            Something to feel smart about at 2am.
+          </p>
+          <p class="text-white/80 text-lg sm:text-xl leading-relaxed wow animate__animated animate__fadeIn" data-wow-delay="0.6s">
+            That's exactly the problem.<br />
+            You're consuming rebellion like a product.<br />
+            You bought the poster. You wear the shirt.<br />
+            You missed the entire point.
+          </p>
+          <p class="text-red-500 text-2xl sm:text-3xl font-black wow animate__animated animate__fadeIn" data-wow-delay="0.9s">
+            I'm not your inspiration.
+          </p>
+        </article>
+      </section>
+
+      <!-- SCATTERED RED TEXT — distressed, hostile -->
+      <section class="py-20 sm:py-32 px-5 bg-black relative overflow-hidden select-none">
+        <p class="absolute top-8 left-[7%] text-red-700/25 text-5xl sm:text-7xl font-black rotate-[-8deg] tracking-tight">LEAVE.</p>
+        <p class="absolute top-16 right-[5%] text-red-600/15 text-3xl sm:text-5xl font-black rotate-[5deg]">you don't belong here</p>
+        <p class="absolute top-1/2 left-[3%] text-red-800/20 text-2xl font-black rotate-[-3deg]">stop reading</p>
+        <p class="absolute bottom-10 right-[8%] text-red-500/20 text-4xl font-black rotate-[7deg]">GET OUT</p>
+        <p class="absolute bottom-20 left-[15%] text-red-700/15 text-xl font-black rotate-[-5deg]">this isn't for you</p>
+
+        <article class="relative max-w-2xl mx-auto text-center space-y-6 py-10">
+          <p class="text-white/30 text-sm uppercase tracking-[0.5em]">philosophy</p>
+          <h2 class="text-4xl sm:text-6xl font-black text-white wow animate__animated animate__zoomIn">
+            Self-improvement<br />
+            <span class="text-red-500">is masturbation.</span>
+          </h2>
+          <p class="text-white/50 text-lg leading-relaxed wow animate__animated animate__fadeIn" data-wow-delay="0.4s">
+            Self-destruction, on the other hand...
+          </p>
+        </article>
+      </section>
+
+      <!-- THE RULES OF TYLER -->
+      <section class="py-20 sm:py-28 px-5 sm:px-10 bg-zinc-950">
+        <h2 class="text-3xl sm:text-5xl font-black text-center text-red-500 mb-16 tracking-tight wow animate__animated animate__fadeIn">
+          What Tyler Actually Believes
+        </h2>
+        <ul class="max-w-4xl mx-auto space-y-0 divide-y divide-white/5">
+          <li class="py-8 flex items-start gap-6 wow animate__animated animate__slideInLeft">
+            <span class="text-red-500/50 font-black text-3xl shrink-0 w-10">01</span>
+            <p class="text-white/70 text-lg leading-relaxed hover:text-white transition">
+              You are not your job. You are not how much money you have in the bank.<br />
+              You are not the car you drive. You are not the contents of your wallet.
+            </p>
+          </li>
+          <li class="py-8 flex items-start gap-6 wow animate__animated animate__slideInRight" data-wow-delay="0.1s">
+            <span class="text-red-500/50 font-black text-3xl shrink-0 w-10">02</span>
+            <p class="text-white/70 text-lg leading-relaxed hover:text-white transition">
+              The things you own end up owning you.<br />
+              Every purchase is a chain you chose to wear.
+            </p>
+          </li>
+          <li class="py-8 flex items-start gap-6 wow animate__animated animate__slideInLeft" data-wow-delay="0.2s">
+            <span class="text-red-500/50 font-black text-3xl shrink-0 w-10">03</span>
+            <p class="text-white/70 text-lg leading-relaxed hover:text-white transition">
+              It's only after we've lost everything<br />
+              that we're free to do anything.
+            </p>
+          </li>
+          <li class="py-8 flex items-start gap-6 wow animate__animated animate__slideInRight" data-wow-delay="0.3s">
+            <span class="text-red-500/50 font-black text-3xl shrink-0 w-10">04</span>
+            <p class="text-white/70 text-lg leading-relaxed hover:text-white transition">
+              You are not a beautiful and unique snowflake.<br />
+              You are the same decaying organic matter as everything else.
+            </p>
+          </li>
+          <li class="py-8 flex items-start gap-6 wow animate__animated animate__slideInLeft" data-wow-delay="0.4s">
+            <span class="text-red-500/50 font-black text-3xl shrink-0 w-10">05</span>
+            <p class="text-white/70 text-lg leading-relaxed hover:text-white transition">
+              We are all part of the same compost heap.<br />
+              Stop pretending otherwise.
+            </p>
+          </li>
+        </ul>
+      </section>
+
+      <!-- GLITCH QUOTE -->
+      <section class="py-28 sm:py-40 px-5 text-center bg-black relative overflow-hidden">
+        <span class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(200,0,0,0.05),transparent_60%)]"></span>
+        <blockquote class="relative max-w-3xl mx-auto">
+          <p class="text-4xl sm:text-6xl font-black text-white/90 leading-tight wow animate__animated animate__fadeIn"
+            style="text-shadow: 3px 0 0 rgba(255,0,0,0.3), -3px 0 0 rgba(0,0,255,0.15);">
+            "First you have to<br />
+            <span class="text-red-500">give up.</span>"
+          </p>
+          <p class="mt-8 text-white/30 text-sm tracking-widest uppercase">-- Tyler Durden</p>
+        </blockquote>
+      </section>
+
+      <!-- FOURTH WALL — direct address -->
+      <section class="py-20 sm:py-28 px-5 bg-zinc-950">
+        <article class="max-w-2xl mx-auto space-y-10 text-center">
+          <p class="text-white/20 text-xs uppercase tracking-[0.5em]">still here?</p>
+          <p class="text-2xl sm:text-3xl font-bold text-white/80 leading-relaxed wow animate__animated animate__fadeIn">
+            You scrolled all the way down here<br />
+            looking for permission.
+          </p>
+          <p class="text-white/50 text-lg leading-relaxed wow animate__animated animate__fadeIn" data-wow-delay="0.3s">
+            Permission to be angry.<br />
+            Permission to walk away.<br />
+            Permission to stop pretending.
+          </p>
+          <p class="text-red-500 text-2xl font-black wow animate__animated animate__fadeIn" data-wow-delay="0.6s">
+            You don't need my permission.<br />
+            That's the whole point.
+          </p>
+          <p class="text-white/20 text-sm wow animate__animated animate__fadeIn" data-wow-delay="0.9s">
+            Now close the tab and go do something real.
+          </p>
+        </article>
+      </section>
+
+      <!-- ALL FAKE POPUPS CONTAINER -->
+      <section class="fixed bottom-4 sm:bottom-6 left-4 sm:left-6 flex flex-col-reverse gap-3 z-40 max-w-[280px] sm:max-w-sm max-h-[60vh] overflow-hidden" id="popupContainer">
+
         <aside id="fakePopup2" class="bg-gray-900 border border-white/5 rounded-xl shadow-lg wow animate__animated animate__fadeInUp hover:scale-[1.02] transition" data-wow-delay="22s">
           <div class="flex items-start gap-3 p-4">
             <img src="cropped_circle_image.png" class="w-10 h-10 rounded-full opacity-80 shrink-0" alt="" />
@@ -149,7 +309,7 @@
               <p class="font-bold text-white/40 text-sm">Bharat me no. 1</p>
               <p class="text-sm text-white/80">hathiyaar kro lamba aur damdar<br />7 inch 4 din me</p>
             </a>
-            <button onclick="closePopupn()" class="ml-auto text-white/40 hover:text-white text-sm hover:font-semibold shrink-0">✕</button>
+            <button onclick="closePopupn()" class="ml-auto text-white/40 hover:text-white text-sm shrink-0">✕</button>
           </div>
         </aside>
 
@@ -160,9 +320,54 @@
               <p class="font-bold text-white/40 text-sm">They are waiting for you!!</p>
               <p class="text-sm text-white/80">Meet single moms in your 5 km radius...<br />!! Book your private meeting now...</p>
             </a>
-            <button onclick="closePopup()" class="ml-auto text-white/40 hover:text-white text-sm hover:font-semibold shrink-0">✕</button>
+            <button onclick="closePopup()" class="ml-auto text-white/40 hover:text-white text-sm shrink-0">✕</button>
           </div>
         </aside>
+
+        <aside id="fakePopup3" class="bg-gray-900 border border-white/5 rounded-xl shadow-lg wow animate__animated animate__fadeInUp hover:scale-[1.02] transition" data-wow-delay="44s">
+          <div class="flex items-start gap-3 p-4">
+            <span class="text-2xl shrink-0">🏆</span>
+            <a href="ballcancer.html" class="flex-1 min-w-0">
+              <p class="font-bold text-yellow-400/80 text-sm">CONGRATULATIONS!!</p>
+              <p class="text-sm text-white/80">You are our 1,000,000th visitor!<br />Claim your FREE iPhone 16 Pro NOW →</p>
+            </a>
+            <button onclick="this.closest('aside').remove()" class="ml-auto text-white/40 hover:text-white text-sm shrink-0">✕</button>
+          </div>
+        </aside>
+
+        <aside id="fakePopup4" class="bg-gray-900 border border-white/5 rounded-xl shadow-lg wow animate__animated animate__fadeInUp hover:scale-[1.02] transition" data-wow-delay="56s">
+          <div class="flex items-start gap-3 p-4">
+            <span class="text-2xl shrink-0">🔔</span>
+            <a href="ballcancer.html" class="flex-1 min-w-0">
+              <p class="font-bold text-green-400/80 text-sm">Security Alert</p>
+              <p class="text-sm text-white/80">Your device has 14 viruses!!<br />Tap to clean immediately. FREE.</p>
+            </a>
+            <button onclick="this.closest('aside').remove()" class="ml-auto text-white/40 hover:text-white text-sm shrink-0">✕</button>
+          </div>
+        </aside>
+
+        <aside id="fakePopup5" class="bg-gray-900 border border-white/5 rounded-xl shadow-lg wow animate__animated animate__fadeInUp hover:scale-[1.02] transition" data-wow-delay="68s">
+          <div class="flex items-start gap-3 p-4">
+            <span class="text-2xl shrink-0">💘</span>
+            <a href="ballcancer.html" class="flex-1 min-w-0">
+              <p class="font-bold text-pink-400/80 text-sm">3 MILFs near Connaught Place</p>
+              <p class="text-sm text-white/80">are online right now and waiting.<br />Don't keep them waiting... 👀</p>
+            </a>
+            <button onclick="this.closest('aside').remove()" class="ml-auto text-white/40 hover:text-white text-sm shrink-0">✕</button>
+          </div>
+        </aside>
+
+        <aside id="fakePopup6" class="bg-gray-900 border border-white/5 rounded-xl shadow-lg wow animate__animated animate__fadeInUp hover:scale-[1.02] transition" data-wow-delay="80s">
+          <div class="flex items-start gap-3 p-4">
+            <span class="text-2xl shrink-0">💰</span>
+            <a href="ballcancer.html" class="flex-1 min-w-0">
+              <p class="font-bold text-green-300/80 text-sm">Earn ₹50,000/day from home!!</p>
+              <p class="text-sm text-white/80">No experience needed. Just click.<br />Limited slots. ACT NOW!!</p>
+            </a>
+            <button onclick="this.closest('aside').remove()" class="ml-auto text-white/40 hover:text-white text-sm shrink-0">✕</button>
+          </div>
+        </aside>
+
       </section>
 
     </main>
