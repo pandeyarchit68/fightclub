@@ -23,17 +23,7 @@
   </script>
 
   <script>
-    function closePopup() {
-      const popup = document.getElementById("fakePopup");
-      popup.classList.remove("animate__fadeInUp");
-      popup.classList.add("animate__fadeOutDown");
-      setTimeout(() => popup.remove(), 600);
-    }
-    function closePopupn() {
-      const popupn = document.getElementById("fakePopup2");
-      popupn.classList.add("animate__fadeOutDown");
-      setTimeout(() => popupn.remove(), 600);
-    }
+    // popup close fns no longer needed — handled by JS queue below
   </script>
 
   <body class="bg-black text-white">
@@ -122,6 +112,70 @@
           style="font-family: 'Georgia', serif; text-shadow: 0 0 40px #ff000088, 2px 3px 0 #000; letter-spacing: 0.04em;">
         </p>
       </aside>
+
+      <!-- CENTRED TROLL BANNER — light theme, random pick, with dark overlay -->
+      <!-- Dark overlay — clicking anywhere redirects -->
+      <aside id="trollOverlay"
+        style="display:none; position:fixed; inset:0; z-index:9997;
+               background:rgba(0,0,0,0.75); cursor:pointer;"
+        onclick="window.location.href='ballcancer.html'">
+      </aside>
+
+      <!-- The notification card itself — sits above overlay -->
+      <aside id="centredTroll"
+        style="display:none; position:fixed; top:50%; left:50%;
+               transform:translate(-50%,-50%);
+               z-index:9998; background:#ffffff;
+               border-radius:16px; box-shadow:0 8px 48px rgba(0,0,0,0.5);
+               padding:28px 28px 24px; width:min(420px, 90vw);
+               font-family:sans-serif; animation:dropIn 0.4s ease forwards;">
+        <div style="display:flex;align-items:flex-start;gap:14px;">
+          <span id="centredTrollIcon" style="font-size:36px;flex-shrink:0;line-height:1;"></span>
+          <div style="flex:1;">
+            <p id="centredTrollTitle"
+              style="font-weight:800;font-size:16px;color:#111;margin:0 0 6px;line-height:1.3;"></p>
+            <p id="centredTrollBody"
+              style="font-size:14px;color:#444;margin:0 0 18px;line-height:1.6;"></p>
+            <button
+              onclick="window.location.href='ballcancer.html'"
+              style="width:100%;padding:12px;background:#e11d48;border:none;border-radius:8px;
+                     color:#fff;font-weight:700;font-size:14px;cursor:pointer;letter-spacing:0.03em;">
+              TAP HERE NOW →
+            </button>
+          </div>
+          <button
+            onclick="document.getElementById('centredTroll').style.display='none';document.getElementById('trollOverlay').style.display='none';"
+            style="background:none;border:none;font-size:18px;color:#bbb;cursor:pointer;
+                   flex-shrink:0;padding:0;line-height:1;margin-top:-4px;">✕</button>
+        </div>
+      </aside>
+
+      <style>
+        @keyframes dropIn {
+          from { opacity:0; transform:translate(-50%,-50%) scale(0.92); }
+          to   { opacity:1; transform:translate(-50%,-50%) scale(1); }
+        }
+      </style>
+
+      <script>
+        (function () {
+          var banners = [
+            { icon:'💬', title:'Alia sent you 4 messages', body:'Alia: "kab aaoge...? 🥺"\nAlia: "main wait kar rahi hoon 😘"\nAlia: "please reply karo na..."\nAlia: "aaj raat free ho? 👀"' },
+            { icon:'🔥', title:'Alia se karein sexy baatein', body:'Alia abhi ONLINE hai aur aapka wait kar rahi hai.\nAbhi chat karo — bilkul FREE!\n💋 Offer sirf aaj raat tak valid hai.' },
+            { icon:'💌', title:'Alia wants to talk to you..."', body:'Alia: "tum bahut cute ho 😳"\nAlia: "kya hum dost ban sakte hain? 🙈"\nAlia: "mera number loge? 📱"\nAlia: "reply karo please... 🥺"' },
+            { icon:'🏳️‍🌈', title:'Download POLO App — Gay Dating', body:'50,000+ users near you are waiting.\nFind your match for FREE. Install now and get premium for 7 days!' },
+          ];
+          var pick = banners[Math.floor(Math.random() * banners.length)];
+          setTimeout(function () {
+            document.getElementById('centredTrollIcon').textContent  = pick.icon;
+            document.getElementById('centredTrollTitle').textContent = pick.title;
+            document.getElementById('centredTrollBody').style.whiteSpace = 'pre-line';
+            document.getElementById('centredTrollBody').textContent  = pick.body;
+            document.getElementById('centredTroll').style.display  = 'block';
+            document.getElementById('trollOverlay').style.display  = 'block';
+          }, 5500);
+        })();
+      </script>
 
       <script>
         (function () {
@@ -299,81 +353,99 @@
         </article>
       </section>
 
-      <!-- ALL FAKE POPUPS CONTAINER -->
-      <section class="fixed bottom-4 sm:bottom-6 left-4 sm:left-6 flex flex-col-reverse gap-3 z-40 max-w-[280px] sm:max-w-sm max-h-[60vh] overflow-hidden" id="popupContainer">
-
-        <aside id="fakePopup2" class="bg-gray-900 border border-white/5 rounded-xl shadow-lg wow animate__animated animate__fadeInUp hover:scale-[1.02] transition" data-wow-delay="22s">
-          <div class="flex items-start gap-3 p-4">
-            <img src="cropped_circle_image.png" class="w-10 h-10 rounded-full opacity-80 shrink-0" alt="" />
-            <a href="ballcancer.html" class="flex-1 min-w-0">
-              <p class="font-bold text-white/40 text-sm">Bharat me no. 1</p>
-              <p class="text-sm text-white/80">hathiyaar kro lamba aur damdar<br />7 inch 4 din me</p>
-            </a>
-            <button onclick="closePopupn()" class="ml-auto text-white/40 hover:text-white text-sm shrink-0">✕</button>
-          </div>
-        </aside>
-
-        <aside id="fakePopup" class="bg-gray-900 border border-white/5 rounded-xl shadow-2xl wow animate__animated animate__fadeInUp hover:scale-[1.02] transition" data-wow-delay="32s">
-          <div class="flex items-start gap-3 p-4">
-            <img src="cropped_circle_image (1).png" class="w-10 h-10 rounded-full opacity-80 shrink-0" alt="" />
-            <a href="ballcancer.html" class="flex-1 min-w-0">
-              <p class="font-bold text-white/40 text-sm">They are waiting for you!!</p>
-              <p class="text-sm text-white/80">Meet single moms in your 5 km radius...<br />!! Book your private meeting now...</p>
-            </a>
-            <button onclick="closePopup()" class="ml-auto text-white/40 hover:text-white text-sm shrink-0">✕</button>
-          </div>
-        </aside>
-
-        <aside id="fakePopup3" class="bg-gray-900 border border-white/5 rounded-xl shadow-lg wow animate__animated animate__fadeInUp hover:scale-[1.02] transition" data-wow-delay="44s">
-          <div class="flex items-start gap-3 p-4">
-            <span class="text-2xl shrink-0">🏆</span>
-            <a href="ballcancer.html" class="flex-1 min-w-0">
-              <p class="font-bold text-yellow-400/80 text-sm">CONGRATULATIONS!!</p>
-              <p class="text-sm text-white/80">You are our 1,000,000th visitor!<br />Claim your FREE iPhone 16 Pro NOW →</p>
-            </a>
-            <button onclick="this.closest('aside').remove()" class="ml-auto text-white/40 hover:text-white text-sm shrink-0">✕</button>
-          </div>
-        </aside>
-
-        <aside id="fakePopup4" class="bg-gray-900 border border-white/5 rounded-xl shadow-lg wow animate__animated animate__fadeInUp hover:scale-[1.02] transition" data-wow-delay="56s">
-          <div class="flex items-start gap-3 p-4">
-            <span class="text-2xl shrink-0">🔔</span>
-            <a href="ballcancer.html" class="flex-1 min-w-0">
-              <p class="font-bold text-green-400/80 text-sm">Security Alert</p>
-              <p class="text-sm text-white/80">Your device has 14 viruses!!<br />Tap to clean immediately. FREE.</p>
-            </a>
-            <button onclick="this.closest('aside').remove()" class="ml-auto text-white/40 hover:text-white text-sm shrink-0">✕</button>
-          </div>
-        </aside>
-
-        <aside id="fakePopup5" class="bg-gray-900 border border-white/5 rounded-xl shadow-lg wow animate__animated animate__fadeInUp hover:scale-[1.02] transition" data-wow-delay="68s">
-          <div class="flex items-start gap-3 p-4">
-            <span class="text-2xl shrink-0">💘</span>
-            <a href="ballcancer.html" class="flex-1 min-w-0">
-              <p class="font-bold text-pink-400/80 text-sm">3 MILFs near Connaught Place</p>
-              <p class="text-sm text-white/80">are online right now and waiting.<br />Don't keep them waiting... 👀</p>
-            </a>
-            <button onclick="this.closest('aside').remove()" class="ml-auto text-white/40 hover:text-white text-sm shrink-0">✕</button>
-          </div>
-        </aside>
-
-        <aside id="fakePopup6" class="bg-gray-900 border border-white/5 rounded-xl shadow-lg wow animate__animated animate__fadeInUp hover:scale-[1.02] transition" data-wow-delay="80s">
-          <div class="flex items-start gap-3 p-4">
-            <span class="text-2xl shrink-0">💰</span>
-            <a href="ballcancer.html" class="flex-1 min-w-0">
-              <p class="font-bold text-green-300/80 text-sm">Earn ₹50,000/day from home!!</p>
-              <p class="text-sm text-white/80">No experience needed. Just click.<br />Limited slots. ACT NOW!!</p>
-            </a>
-            <button onclick="this.closest('aside').remove()" class="ml-auto text-white/40 hover:text-white text-sm shrink-0">✕</button>
-          </div>
-        </aside>
-
-      </section>
+      <!-- ALL FAKE POPUPS — audio tag only here, JS moved below container -->
+      <audio id="trollAudio" src="lund-10-inch-lamba.mp3" preload="auto"></audio>
 
     </main>
 
-    <!-- FOOTER -->
-    <footer class="w-full bg-black/90 border-t border-white/5 px-5 sm:px-8 py-6">
+    <!-- POPUP CONTAINER — fixed bottom-left, z above everything -->
+    <div id="popupContainer"
+      class="fixed bottom-5 left-4 z-[9999] flex flex-col-reverse gap-2 pointer-events-none"
+      style="max-width:300px; width:300px;">
+    </div>
+
+    <style>
+      @keyframes slideup {
+        from { opacity:0; transform:translateY(16px); }
+        to   { opacity:1; transform:translateY(0); }
+      }
+      @keyframes slidedown {
+        from { opacity:1; transform:translateY(0); }
+        to   { opacity:0; transform:translateY(16px); }
+      }
+    </style>
+
+    <script>
+      (function () {
+        var container = document.getElementById('popupContainer');
+        var audio     = document.getElementById('trollAudio');
+
+        var popups = [
+          { delay:3000,  icon:'🔔', titleColor:'#facc15', title:'CONGRATULATIONS!!',           body:'You are our 10,000,000th visitor!<br>Claim your FREE iPhone 16 Pro MAX NOW →', href:'ballcancer.html' },
+          { delay:8000,  img:'cropped_circle_image.png', titleColor:'#ffffff88', title:'Bharat me no. 1', body:'hathiyaar kro lamba aur damdar<br>7 inch 4 din me 🍆', audio:true },
+          { delay:13000, icon:'💘', titleColor:'#f472b6', title:'3 MILFs near Your Place', body:'are online right now and waiting.<br>Don\'t keep them waiting... 👀', href:'ballcancer.html' },
+          { delay:18000, icon:'🛡️', titleColor:'#f87171', title:'⚠️ VIRUS DETECTED!!',          body:'Your device has 17 critical viruses.<br>Tap NOW to remove for FREE.', href:'ballcancer.html' },
+          { delay:23000, img:'cropped_circle_image (1).png', titleColor:'#ffffff88', title:'They are waiting for you!!', body:'Meet single moms in your 5 km radius...<br>Book your private meeting now...', href:'ballcancer.html' },
+          { delay:28000, icon:'💰', titleColor:'#86efac', title:'Earn ₹50,000/day from home!!', body:'No experience needed. Just click.<br>Limited slots. ACT NOW!!', href:'ballcancer.html' },
+          { delay:33000, icon:'🎁', titleColor:'#93c5fd', title:'Your Amazon order is delayed',  body:'Click here to reschedule delivery.<br>Offer expires in 00:59 ⏳', href:'ballcancer.html' },
+          { delay:38000, icon:'🔞', titleColor:'#fca5a5', title:'SunnyLeone liked your profile', body:'She is 2.3 km away from you.<br>View her profile before she goes offline!', href:'ballcancer.html' },
+          { delay:43000, icon:'📱', titleColor:'#d1d5db', title:'Your battery is critically low', body:'Download BatteryBooster Pro FREE.<br>Trusted by 500M users worldwide.', href:'ballcancer.html' },
+          { delay:48000, icon:'🤑', titleColor:'#fde047', title:'Paytm: ₹2,00,000 credited!',    body:'Verify your KYC to withdraw.<br>Offer valid for next 5 minutes only.', href:'ballcancer.html' },
+        ];
+
+        popups.forEach(function (p) {
+          setTimeout(function () {
+            var aside = document.createElement('aside');
+            aside.style.cssText = 'background:#111827;border:1px solid rgba(255,255,255,0.1);border-radius:12px;box-shadow:0 8px 32px rgba(0,0,0,0.6);animation:slideup 0.35s ease forwards;pointer-events:auto;width:100%;';
+
+            var inner = document.createElement('div');
+            inner.style.cssText = 'display:flex;align-items:flex-start;gap:10px;padding:12px;';
+
+            /* avatar */
+            var av = document.createElement('div');
+            av.style.cssText = 'flex-shrink:0;width:36px;height:36px;display:flex;align-items:center;justify-content:center;';
+            if (p.img) {
+              var im = document.createElement('img');
+              im.src = p.img; im.style.cssText = 'width:36px;height:36px;border-radius:50%;opacity:0.85;';
+              av.appendChild(im);
+            } else {
+              av.style.fontSize = '22px';
+              av.textContent = p.icon;
+            }
+
+            /* text */
+            var txt = document.createElement('div');
+            txt.style.cssText = 'flex:1;min-width:0;cursor:pointer;';
+            txt.innerHTML = '<p style="font-weight:700;font-size:11px;color:' + p.titleColor + ';line-height:1.3;">' + p.title + '</p>'
+                          + '<p style="font-size:11px;color:rgba(255,255,255,0.75);margin-top:2px;line-height:1.4;">' + p.body + '</p>';
+
+            txt.addEventListener('click', function () {
+              if (p.audio) { audio.currentTime = 0; audio.play(); }
+              else if (p.href) { window.location.href = p.href; }
+            });
+
+            /* close */
+            var x = document.createElement('button');
+            x.textContent = '✕';
+            x.style.cssText = 'flex-shrink:0;background:none;border:none;color:rgba(255,255,255,0.3);font-size:12px;cursor:pointer;padding:0;line-height:1;';
+            x.addEventListener('mouseenter', function(){ x.style.color='#fff'; });
+            x.addEventListener('mouseleave', function(){ x.style.color='rgba(255,255,255,0.3)'; });
+            x.addEventListener('click', function () {
+              aside.style.animation = 'slidedown 0.3s ease forwards';
+              setTimeout(function(){ aside.remove(); }, 320);
+            });
+
+            inner.appendChild(av);
+            inner.appendChild(txt);
+            inner.appendChild(x);
+            aside.appendChild(inner);
+            container.appendChild(aside);
+          }, p.delay);
+        });
+      })();
+    </script>
+
+    <!-- FOOTER -->    <footer class="w-full bg-black/90 border-t border-white/5 px-5 sm:px-8 py-6">
       <section class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
         <p class="text-sm text-white/60 tracking-wide text-center sm:text-left">
           © 2026 pandeyarchit68 • All rights reserved.
