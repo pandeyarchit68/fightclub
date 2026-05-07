@@ -178,8 +178,11 @@
 
           function handleTrollClick() {
             if (pick.audio && trollAudio2) {
+              // play audio, close the popup, stay on page
               trollAudio2.currentTime = 0;
               trollAudio2.play();
+              document.getElementById('centredTroll').style.display = 'none';
+              document.getElementById('trollOverlay').style.display = 'none';
             } else if (pick.href) {
               window.location.href = pick.href;
             }
