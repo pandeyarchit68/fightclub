@@ -179,10 +179,6 @@
 
           function handleTrollClick() {
             if (pick.audio) {
-              // close popup first so nothing blocks playback
-              document.getElementById('centredTroll').style.display = 'none';
-              document.getElementById('trollOverlay').style.display = 'none';
-              // create a fresh Audio each click — avoids stale state issues
               var a = new Audio(pick.audio);
               a.volume = 1.0;
               a.play().catch(function(e){ console.warn('Audio play failed:', e); });
