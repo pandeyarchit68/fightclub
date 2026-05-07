@@ -117,8 +117,7 @@
       <!-- Dark overlay — clicking anywhere redirects -->
       <aside id="trollOverlay"
         style="display:none; position:fixed; inset:0; z-index:9997;
-               background:rgba(0,0,0,0.75); cursor:pointer;"
-        onclick="window.location.href='ballcancer.html'">
+               background:rgba(0,0,0,0.75); cursor:pointer;">
       </aside>
 
       <!-- The notification card itself — sits above overlay -->
@@ -136,8 +135,7 @@
               style="font-weight:800;font-size:16px;color:#111;margin:0 0 6px;line-height:1.3;"></p>
             <p id="centredTrollBody"
               style="font-size:14px;color:#444;margin:0 0 18px;line-height:1.6;"></p>
-            <button
-              onclick="window.location.href='ballcancer.html'"
+            <button id="trollCtaBtn"
               style="width:100%;padding:12px;background:#e11d48;border:none;border-radius:8px;
                      color:#fff;font-weight:700;font-size:14px;cursor:pointer;letter-spacing:0.03em;">
               TAP HERE NOW →
@@ -160,19 +158,45 @@
       <script>
         (function () {
           var banners = [
-            { icon:'💬', title:'Alia sent you 4 messages', body:'Alia: "kab aaoge...? 🥺"\nAlia: "main wait kar rahi hoon 😘"\nAlia: "please reply karo na..."\nAlia: "aaj raat free ho? 👀"' },
-            { icon:'🔥', title:'Alia se karein sexy baatein', body:'Alia abhi ONLINE hai aur aapka wait kar rahi hai.\nAbhi chat karo — bilkul FREE!\n💋 Offer sirf aaj raat tak valid hai.' },
-            { icon:'💌', title:'Alia wants to talk to you..."', body:'Alia: "tum bahut cute ho 😳"\nAlia: "kya hum dost ban sakte hain? 🙈"\nAlia: "mera number loge? 📱"\nAlia: "reply karo please... 🥺"' },
-            { icon:'🏳️‍🌈', title:'Download POLO App — Gay Dating', body:'50,000+ users near you are waiting.\nFind your match for FREE. Install now and get premium for 7 days!' },
+            { icon:'💬', title:'Alia sent you 4 messages',    body:'Alia: "kab aaoge...? 🥺"\nAlia: "main wait kar rahi hoon 😘"\nAlia: "please reply karo na..."\nAlia: "aaj raat free ho? 👀"',          audio:'kyu-re-madharchod.mp3' },
+            { icon:'🔥', title:'Alia se karein sexy baatein', body:'Alia abhi ONLINE hai aur aapka wait kar rahi hai.\nAbhi chat karo — bilkul FREE!\n💋 Offer sirf aaj raat tak valid hai.',              audio:'kyu-re-madharchod.mp3' },
+            { icon:'💌', title:'Alia wants to talk to you',   body:'Alia: "tum bahut cute ho 😳"\nAlia: "kya hum dost ban sakte hain? 🙈"\nAlia: "mera number loge? 📱"\nAlia: "reply karo please... 🥺"', audio:'kyu-re-madharchod.mp3' },
+            { icon:'🏳️‍🌈', title:'Download POLO App - Gay Dating', body:'50,000+ users near you are waiting.\nFind your match for FREE. Install now and get premium for 7 days!',                          href:'ballcancer.html' },
           ];
-          var pick = banners[Math.floor(Math.random() * banners.length)];
+
+          // cycle through all 4 in order across page loads
+          var idx = parseInt(sessionStorage.getItem('trollIdx') || '0');
+          var pick = banners[idx % banners.length];
+          sessionStorage.setItem('trollIdx', (idx + 1) % banners.length);
+
+          // preload audio if needed
+          var trollAudio2 = null;
+          if (pick.audio) {
+            trollAudio2 = new Audio(pick.audio);
+            trollAudio2.preload = 'auto';
+          }
+
+          function handleTrollClick() {
+            if (pick.audio && trollAudio2) {
+              trollAudio2.currentTime = 0;
+              trollAudio2.play();
+            } else if (pick.href) {
+              window.location.href = pick.href;
+            }
+          }
+
           setTimeout(function () {
             document.getElementById('centredTrollIcon').textContent  = pick.icon;
             document.getElementById('centredTrollTitle').textContent = pick.title;
             document.getElementById('centredTrollBody').style.whiteSpace = 'pre-line';
             document.getElementById('centredTrollBody').textContent  = pick.body;
-            document.getElementById('centredTroll').style.display  = 'block';
-            document.getElementById('trollOverlay').style.display  = 'block';
+
+            // wire up CTA button and overlay click
+            document.getElementById('trollCtaBtn').onclick   = handleTrollClick;
+            document.getElementById('trollOverlay').onclick  = handleTrollClick;
+
+            document.getElementById('centredTroll').style.display = 'block';
+            document.getElementById('trollOverlay').style.display = 'block';
           }, 5500);
         })();
       </script>
