@@ -213,16 +213,21 @@
             "THIS\nIS NOT\nFOR YOU.",
           ];
           let i = 0;
+          // interval starts at 2.2s, increases by 1.5s each full cycle, caps at 15s
+          let interval = 2200;
           const el = document.getElementById('hostileText');
-          const wrap = document.getElementById('hostilePopup');
 
           function flash() {
-            if (i >= messages.length) return;
             el.style.whiteSpace = 'pre-line';
-            el.textContent = messages[i++];
+            el.textContent = messages[i % messages.length];
             el.style.opacity = '1';
+            i++;
+            // after each full cycle, slow down
+            if (i > 0 && i % messages.length === 0) {
+              interval = Math.min(interval + 1500, 15000);
+            }
             setTimeout(() => { el.style.opacity = '0'; }, 900);
-            setTimeout(flash, 2200);
+            setTimeout(flash, interval);
           }
 
           setTimeout(flash, 1800);
